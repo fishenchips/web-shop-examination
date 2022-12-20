@@ -1,4 +1,8 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a school [Medieinstitutet](https://medieinstitutet.se/) examination project, where I will build a web shop.
+
+Products are from [Platzi Fake Store API](https://fakeapi.platzi.com/doc/products)
+
+[Link to TRELLO board](https://trello.com/b/P9fzzmlI/webbshopp)
 
 ## Getting Started
 
