@@ -6,6 +6,7 @@ import {
   QueryClientProvider,
 } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import DeleteProduct from "../components/DeleteProduct";
 
 const productUrl = "https://api.escuelajs.co/api/v1/products";
 
@@ -16,6 +17,7 @@ const Home = () => {
     <QueryClientProvider client={queryClient}>
       <p>allo</p>
       <Products />
+      <DeleteProduct />
       <ReactQueryDevtools />
     </QueryClientProvider>
   );
