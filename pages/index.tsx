@@ -1,5 +1,6 @@
 /* import Head from "next/head";
 import Image from "next/image"; */
+import { ChakraProvider } from "@chakra-ui/react";
 import {
   useQuery,
   QueryClient,
@@ -15,12 +16,14 @@ const Home = () => {
   const queryClient = new QueryClient();
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <Loading />
-      <Products />
-      <DeleteProduct />
-      <ReactQueryDevtools />
-    </QueryClientProvider>
+    <ChakraProvider>
+      <QueryClientProvider client={queryClient}>
+        <Loading />
+        <Products />
+        <DeleteProduct />
+        <ReactQueryDevtools />
+      </QueryClientProvider>
+    </ChakraProvider>
   );
 };
 
