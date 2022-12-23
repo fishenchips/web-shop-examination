@@ -1,5 +1,20 @@
 import type { AppProps } from "next/app";
+import { ChakraProvider } from "@chakra-ui/react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+
+import { Loading } from "../components/loading/Loading";
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  const queryClient = new QueryClient();
+
+  return (
+    <ChakraProvider>
+      <QueryClientProvider client={queryClient}>
+        <Loading />
+        <Component {...pageProps} />
+        <ReactQueryDevtools />
+      </QueryClientProvider>
+    </ChakraProvider>
+  );
 }
