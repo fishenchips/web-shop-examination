@@ -1,12 +1,19 @@
-import React from "react";
 import { useGetProducts } from "../../queries/products/hooks/useGetProducts";
+import { PlatziProduct } from "../../types/product";
 
 const Products = () => {
-  const { data } = useGetProducts();
+  const { data: products } = useGetProducts();
 
-  console.log({ data });
+  console.log({ products });
 
-  return <div>index</div>;
+  return (
+    <>
+      <div>Products:</div>
+      {products?.map((product: PlatziProduct) => (
+        <span key={product.id}>{product.title} </span>
+      ))}
+    </>
+  );
 };
 
 export default Products;

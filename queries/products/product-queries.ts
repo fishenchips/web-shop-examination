@@ -1,5 +1,7 @@
 export const getProducts = async () => {
-  const response = await fetch("https://api.escuelajs.co/api/v1/products");
+  const response = await fetch(
+    "https://api.escuelajs.co/api/v1/products?offset=0&limit=25"
+  );
 
   const data = await response.json();
 
