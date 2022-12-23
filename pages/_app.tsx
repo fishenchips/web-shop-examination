@@ -5,7 +5,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 import { Loading } from "../components/loading/Loading";
 
-export default function App({ Component, pageProps }: AppProps) {
+const App = ({ Component, pageProps }: AppProps) => {
   const queryClient = new QueryClient();
 
   return (
@@ -17,4 +17,6 @@ export default function App({ Component, pageProps }: AppProps) {
       </QueryClientProvider>
     </ChakraProvider>
   );
-}
+};
+
+export default App;
