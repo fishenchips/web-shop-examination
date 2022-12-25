@@ -20,7 +20,7 @@ export const Products = () => {
               height="200"
             />
             <h5>{product.title}</h5>
-            <p>{product.price}kr</p>
+            <p>{product.price} kr</p>
           </div>
         ))}
       </div>
