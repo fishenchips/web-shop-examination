@@ -6,6 +6,7 @@ import {
 } from "../../queries/products/hooks/useGetProducts";
 import { PlatziProduct } from "../../types/product";
 import styled from "./Products.module.css";
+import InfiniteScroll from "react-infinite-scroll";
 
 export const Products = () => {
   /*   const { data: products } = useGetProducts();
