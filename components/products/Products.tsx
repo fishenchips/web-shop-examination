@@ -1,12 +1,17 @@
 import React from "react";
 import Image from "next/image";
-import { useGetProducts } from "../../queries/products/hooks/useGetProducts";
+import {
+  useGetInfiniteProducts,
+  useGetProducts,
+} from "../../queries/products/hooks/useGetProducts";
 import { PlatziProduct } from "../../types/product";
 import styled from "./Products.module.css";
 
 export const Products = () => {
-  const { data: products } = useGetProducts();
+  /*   const { data: products } = useGetProducts();
+   */
 
+  const { data } = useGetInfiniteProducts();
   console.log({ products });
   return (
     <>
