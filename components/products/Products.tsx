@@ -6,16 +6,20 @@ import {
 } from "../../queries/products/hooks/useGetProducts";
 import { PlatziProduct } from "../../types/product";
 import styled from "./Products.module.css";
-import InfiniteScroll from "react-infinite-scroll";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 export const Products = () => {
   /*   const { data: products } = useGetProducts();
    */
 
-  const { data } = useGetInfiniteProducts();
+  const {
+    data: products,
+    fetchNextPage,
+    hasNextPage,
+  } = useGetInfiniteProducts();
   console.log({ products });
   return (
-    <>
+    <InfiniteScroll hasMore={hasNextPage} loadMore={fetchNextPage}>
       <div className={styled.products}>
         {products?.map((product: PlatziProduct) => (
           <div className={styled.productBox} key={product.id}>
@@ -30,6 +34,6 @@ export const Products = () => {
           </div>
         ))}
       </div>
-    </>
+    </InfiniteScroll>
   );
 };
