@@ -1,10 +1,7 @@
-/* import Head from "next/head";
-import Image from "next/image"; */
-
-import DeleteProduct from "../components/DeleteProduct";
+/* import Head from "next/head";*/
 
 const Home = () => {
-  return <DeleteProduct />;
+  return <p>Start</p>;
 };
 
 export default Home;
