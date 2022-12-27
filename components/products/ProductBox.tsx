@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
+
 import styled from "./Products.module.css";
 
 interface Props {
@@ -16,8 +18,14 @@ export const ProductBox: React.FC<Props> = ({
   price,
   images,
 }) => {
+  const router = useRouter();
+
+  const productPageHandler = () => {
+    router.push(`/products/${id}`);
+  };
+
   return (
-    <div className={styled.productBox} key={key}>
+    <div className={styled.productBox} key={key} onClick={productPageHandler}>
       <Image src={images[0]} alt={title} width="200" height="200" />
       <h5>{title}</h5>
       <p>{price} kr</p>
