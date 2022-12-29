@@ -11,7 +11,7 @@ interface Props {
   images: Array<string>;
 }
 
-export const ProductBox: React.FC<Props> = ({
+export const ProductItem: React.FC<Props> = ({
   key,
   id,
   title,
@@ -25,7 +25,7 @@ export const ProductBox: React.FC<Props> = ({
   };
 
   return (
-    <div className={styled.productBox} key={key} onClick={productPageHandler}>
+    <div className={styled.productBox} onClick={productPageHandler} key={key}>
       <Image src={images[0]} alt={title} width="200" height="200" />
       <h5>{title}</h5>
       <p>{price} kr</p>

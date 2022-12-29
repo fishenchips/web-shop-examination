@@ -8,6 +8,14 @@ export const getProducts = async (offset: number, limit = 30) => {
   return data;
 };
 
+export const getProductById = async (id: number) => {
+  const response = await fetch(
+    `https://api.escuelajs.co/api/v1/products/${id}`
+  );
+
+  return response.json();
+};
+
 export const deleteProduct = async () => {
   return fetch("https://api.escuelajs.co/api/v1/products/200", {
     method: "DELETE",

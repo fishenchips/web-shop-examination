@@ -1,7 +1,7 @@
 import { PlatziProduct } from "../../types/product";
 import { useGetProducts } from "../../queries/products/hooks/useGetProducts";
 import styled from "./Products.module.css";
-import { ProductBox } from "./ProductBox";
+import { ProductItem } from "./ProductItem";
 
 export const Products = () => {
   const { data: products } = useGetProducts();
@@ -9,7 +9,7 @@ export const Products = () => {
   return (
     <div className={styled.products}>
       {products?.map((product: PlatziProduct) => (
-        <ProductBox
+        <ProductItem
           key={product.id}
           id={product.id}
           title={product.title}
