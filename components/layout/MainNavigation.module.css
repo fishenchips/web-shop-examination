@@ -1,0 +1,34 @@
+.header {
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #77002e;
+
+  padding: 0 10%;
+}
+
+.logo h2 {
+  all: revert;
+}
+
+.header ul {
+  display: flex;
+  align-items: baseline;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  border: 1px solid green;
+}
+
+.header a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: green;
+}
+
+.header a:hover {
+  color: rgb(223, 150, 14);
+}
