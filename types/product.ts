@@ -1,5 +1,5 @@
 export interface PlatziProduct {
-  id: number | string;
+  id: number;
   title: string;
   price: number;
   description: string;
@@ -8,7 +8,7 @@ export interface PlatziProduct {
 }
 
 interface Category {
-  id: number | string;
+  id: number;
   name: string;
   image: string;
 }
