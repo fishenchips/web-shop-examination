@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { useRouter } from "next/router";
 
 import styled from "./Products.module.css";
@@ -11,13 +10,7 @@ interface Props {
   images: Array<string>;
 }
 
-export const ProductItem: React.FC<Props> = ({
-  key,
-  id,
-  title,
-  price,
-  images,
-}) => {
+export const ProductItem: React.FC<Props> = ({ id, title, price, images }) => {
   const router = useRouter();
 
   const productPageHandler = () => {
@@ -25,8 +18,10 @@ export const ProductItem: React.FC<Props> = ({
   };
 
   return (
-    <div className={styled.productBox} onClick={productPageHandler} key={key}>
-      <Image src={images[0]} alt={title} width="200" height="200" />
+    <div className={styled.productBox} onClick={productPageHandler}>
+      <div className={styled.productImg}>
+        <img src={images[0]} alt={title} />
+      </div>
       <h5>{title}</h5>
       <p>{price} kr</p>
     </div>

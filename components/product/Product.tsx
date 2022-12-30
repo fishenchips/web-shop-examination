@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import { PlatziProduct } from "../../types/product";
 import styled from "./Product.module.css";
 
@@ -15,8 +13,8 @@ const Product = ({
     <>
       <div className={styled.productPage}>
         <div className={styled.productInfo}>
-          <div>
-            <Image src={images[0]} alt={title} width="500" height="500" />
+          <div className={styled.productPicture}>
+            <img src={images[0]} alt={title} width="500" />
           </div>
           <div>
             <h3>{title}</h3>

@@ -22,3 +22,13 @@
 
   border: 2px solid orange;
 }
+
+.productImg {
+  width: 200px;
+  height: 200px;
+}
+
+.productImg img {
+  width: 100%;
+  height: auto;
+}
