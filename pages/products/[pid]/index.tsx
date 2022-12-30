@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-
+import Product from "../../../components/product/Product";
 import {
   getProductById,
   getProducts,
@@ -9,12 +8,15 @@ import { PlatziProduct } from "../../../types/product";
 const ProductPage = (props: any) => {
   const product = props.productData;
 
-  console.log({ product });
-
   return (
-    <>
-      <p>{product.title}</p>
-    </>
+    <Product
+      id={product.id}
+      title={product.title}
+      price={product.price}
+      description={product.description}
+      category={product.category}
+      images={product.images}
+    />
   );
 };
 
@@ -41,13 +43,19 @@ export async function getStaticProps(context: any) {
 
   const selectedProduct = await getProductById(pid);
 
-  console.log({ selectedProduct });
-
   return {
     props: {
       productData: {
         id: pid,
         title: selectedProduct.title,
+        price: selectedProduct.price,
+        description: selectedProduct.description,
+        category: {
+          id: selectedProduct.category.id,
+          name: selectedProduct.category.name,
+          image: selectedProduct.category.image,
+        },
+        images: selectedProduct.images,
       },
       revalidate: 5,
     },
