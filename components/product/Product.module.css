@@ -1,0 +1,10 @@
+.productPage {
+  width: 90vw;
+  margin: 0 auto;
+
+  border: 1px solid blue;
+}
+
+.productInfo {
+  display: flex;
+}
