@@ -1,11 +1,14 @@
 import Link from "next/link";
 
+import styled from "./AdminNavigation.module.css";
+
 export const AdminNavigation = () => {
   return (
-    <section>
+    <nav className={styled.adminNav}>
+      <h2>Admin Hub</h2>
       <ul>
         <li>
-          <Link href="/admin">Admin</Link>
+          <Link href="/admin">Home</Link>
         </li>
         <li>
           <Link href="/admin/products">Products</Link>
@@ -17,6 +20,6 @@ export const AdminNavigation = () => {
           <Link href="/admin/orders">Orders</Link>
         </li>
       </ul>
-    </section>
+    </nav>
   );
 };
