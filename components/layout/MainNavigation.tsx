@@ -6,15 +6,20 @@ export const MainNavigation = () => {
   return (
     <header className={styled.header}>
       <div className={styled.logo}>
-        <h2>Title of Site</h2>
+        <h2>
+          <Link href="/">Title of Site</Link>
+        </h2>
       </div>
       <nav>
         <ul>
           <li>
-            <Link href="/">Home</Link>
+            <Link href="/products">Products</Link>
           </li>
           <li>
-            <Link href="/products">Products</Link>
+            <Link href="/cart">Cart</Link>
+          </li>
+          <li>
+            <Link href="/wishlist">Wish list</Link>
           </li>
         </ul>
       </nav>

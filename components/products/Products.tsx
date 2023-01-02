@@ -6,6 +6,9 @@ import { ProductItem } from "./ProductItem";
 export const Products = () => {
   const { data: products } = useGetProducts();
 
+  console.log(products);
+
+  if (!products) return <p>Error loading products.</p>;
   return (
     <div className={styled.products}>
       {products?.map((product: PlatziProduct) => (

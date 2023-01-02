@@ -15,10 +15,12 @@
 
 .header ul {
   display: flex;
+  justify-content: space-evenly;
   align-items: baseline;
   margin: 0;
   padding: 0;
   list-style: none;
+  width: 30rem;
 
   border: 1px solid green;
 }
