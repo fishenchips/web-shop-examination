@@ -5,7 +5,7 @@ const AdminPage = () => {
     <>
       <AdminNavigation />
       <p>Admin Start</p>
-      <p>Add "welcome user.name or error message</p>
+      <p>Add "welcome user.name or error message if they dont have access</p>
     </>
   );
 };

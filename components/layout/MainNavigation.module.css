@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #77002e;
+  background-color: #aa7df3;
 
   padding: 0 10%;
 }
@@ -21,14 +21,12 @@
   padding: 0;
   list-style: none;
   width: 30rem;
-
-  border: 1px solid green;
 }
 
 .header a {
   text-decoration: none;
   font-size: 1.5rem;
-  color: green;
+  color: rgb(29, 52, 29);
 }
 
 .header a:hover {
