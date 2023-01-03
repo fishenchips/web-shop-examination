@@ -12,11 +12,11 @@ export const UserForm = ({ values }: Props) => {
     <form className={styled.userForm}>
       <div>
         <label htmlFor="userName">Username</label>
-        <input type="text" value="userName" />
+        <input type="text" name="userName" />
       </div>
       <div>
         <label htmlFor="password">Password</label>
-        <input type="password" value="password" />
+        <input type="password" name="password" />
       </div>
       <div>
         <button type="submit">{values.btnText}</button>

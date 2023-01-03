@@ -1,4 +1,6 @@
 import Link from "next/link";
+
+import styled from "./Login.module.css";
 import { UserForm } from "../userForm/UserForm";
 
 export const Login = () => {
@@ -10,7 +12,11 @@ export const Login = () => {
   return (
     <>
       <UserForm values={formValues} />
-      <Link href="/user/register">Not a member? Join here!</Link>
+      <div className={styled.linkDiv}>
+        <Link href="/user/register" className={styled.link}>
+          Not a member? Join here!
+        </Link>
+      </div>
     </>
   );
 };

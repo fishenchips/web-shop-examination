@@ -1,0 +1,8 @@
+.linkDiv {
+  display: flex;
+  justify-content: center;
+}
+
+.link {
+  color: gray;
+}
