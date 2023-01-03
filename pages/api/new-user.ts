@@ -1,4 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
+import { MongoClient } from "mongodb";
+
+import { apiKey } from "../../keys/apiKeys";
 
 // url of file /api/new-user
 
@@ -15,6 +18,8 @@ const handler = (req: NextApiRequest, res: NextApiResponse<Data>) => {
     const data = req.body;
 
     const { userName, password, role } = data;
+
+    MongoClient.connect(apiKey);
   }
 };
 
