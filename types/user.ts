@@ -1,8 +1,6 @@
 export interface User {
   id?: string;
-  userName: string;
-  password: string;
-  role: Role;
+  userName?: string;
+  password?: string;
+  role?: string;
 }
-
-type Role = "user" | "admin";

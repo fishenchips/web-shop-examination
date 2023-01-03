@@ -5,12 +5,11 @@ import { apiKey } from "../../keys/apiKeys";
 
 // url of file /api/new-user
 
-type role = "user" | "admin";
-
 type Data = {
-  userName: string;
-  password: string;
-  role: role;
+  userName?: string;
+  password?: string;
+  role?: string;
+  message?: string;
 };
 
 const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
@@ -29,7 +28,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
 
     client.close();
 
-    res.status(201);
+    res.status(201).json({ message: "User added." });
   }
 };
 

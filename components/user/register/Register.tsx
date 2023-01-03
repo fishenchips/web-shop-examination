@@ -1,10 +1,15 @@
 import { UserForm } from "../userForm/UserForm";
+import { User } from "../../../types/user";
 
-export const Register = () => {
+type Props = {
+  onAddUser: (userData: User) => Promise<void>;
+};
+
+export const Register: React.FC<Props> = ({ onAddUser }) => {
   const formValues = {
     header: "Please select a username and password",
     btnText: "Register",
   };
 
-  return <UserForm values={formValues} />;
+  return <UserForm values={formValues} onAddUser={onAddUser} />;
 };
