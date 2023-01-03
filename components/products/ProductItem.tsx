@@ -1,4 +1,6 @@
 import { useRouter } from "next/router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart, faHeart } from "@fortawesome/free-solid-svg-icons";
 
 import styled from "./Products.module.css";
 
@@ -24,6 +26,10 @@ export const ProductItem: React.FC<Props> = ({ id, title, price, images }) => {
       </div>
       <h5>{title}</h5>
       <p>{price} kr</p>
+      <div>
+        <FontAwesomeIcon icon={faShoppingCart} />
+        <FontAwesomeIcon icon={faHeart} />
+      </div>
     </div>
   );
 };

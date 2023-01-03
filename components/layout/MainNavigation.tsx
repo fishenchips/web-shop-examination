@@ -1,6 +1,10 @@
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart, faHeart } from "@fortawesome/free-solid-svg-icons";
+import {
+  faShoppingCart,
+  faHeart,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons";
 
 import styled from "./MainNavigation.module.css";
 
@@ -16,6 +20,14 @@ export const MainNavigation = () => {
         <ul>
           <li>
             <Link href="/products">Products</Link>
+          </li>
+          <li>
+            <Link href="/categories">Categories</Link>
+          </li>
+          <li>
+            <Link href="/login">
+              <FontAwesomeIcon icon={faUser} />
+            </Link>
           </li>
           <li>
             <Link href="/cart">
