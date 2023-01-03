@@ -13,13 +13,23 @@ type Data = {
   role: role;
 };
 
-const handler = (req: NextApiRequest, res: NextApiResponse<Data>) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   if (req.method === "POST") {
     const data = req.body;
 
-    const { userName, password, role } = data;
+    const client = await MongoClient.connect(apiKey);
 
-    MongoClient.connect(apiKey);
+    const db = client.db();
+
+    const usersCollection = db.collection("users");
+
+    const result = await usersCollection.insertOne(data);
+
+    console.log(result);
+
+    client.close();
+
+    res.status(201);
   }
 };
 
