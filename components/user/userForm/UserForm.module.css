@@ -1,0 +1,12 @@
+.userForm div {
+  display: flex;
+  flex-direction: column;
+}
+
+.userForm input {
+  all: revert;
+}
+
+.userForm button {
+  all: revert;
+}

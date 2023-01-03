@@ -25,7 +25,7 @@ export const MainNavigation = () => {
             <Link href="/categories">Categories</Link>
           </li>
           <li>
-            <Link href="/login">
+            <Link href="/user">
               <FontAwesomeIcon icon={faUser} />
             </Link>
           </li>
