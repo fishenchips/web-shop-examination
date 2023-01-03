@@ -10,6 +10,7 @@ type Props = {
 export const UserForm = ({ values }: Props) => {
   return (
     <form className={styled.userForm}>
+      <h2>{values.header}</h2>
       <div>
         <label htmlFor="userName">Username</label>
         <input type="text" name="userName" />
