@@ -9,10 +9,8 @@ export const UserContext = createContext<User>({
   role: "",
 });
 
-type Props = ReactNode;
-
 /* Provider to wrap components in _app.tsx */
-const UserContextProvider: React.FC<Props> = (children) => {
+const UserContextProvider: React.FC<any> = (children) => {
   const [user, setUser] = useState<User>({});
 
   const contextValue: User = user;
