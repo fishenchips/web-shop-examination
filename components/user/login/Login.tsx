@@ -1,9 +1,13 @@
 import Link from "next/link";
+import { useContext } from "react";
 
+import { UserContext } from "../../../store/userContext";
 import styled from "./Login.module.css";
 import { UserForm } from "../userForm/UserForm";
 
 export const Login = () => {
+  const userCtx = useContext(UserContext);
+
   const formValues = {
     header: "Please enter your username and password",
     btnText: "Login",
