@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faShoppingCart,
@@ -6,9 +7,17 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 
+import { CartContext } from "../../store/CartContext";
 import styled from "./MainNavigation.module.css";
 
 export const MainNavigation = () => {
+  const cartCtx = useContext(CartContext);
+
+  /* transform array into a single number - takes two args, function and starting value (0) */
+  const numberOfCartItems = cartCtx.items.reduce((currentNum, item) => {
+    return currentNum + item; // add amount later;
+  }, 0);
+
   return (
     <header className={styled.header}>
       <div className={styled.logo}>
@@ -32,6 +41,7 @@ export const MainNavigation = () => {
           <li>
             <Link href="/cart">
               <FontAwesomeIcon icon={faShoppingCart} />
+              {numberOfCartItems}
             </Link>
           </li>
           <li>
