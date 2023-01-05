@@ -1,3 +1,6 @@
+import { useContext } from "react";
+
+import { CartContext } from "../../store/CartContext";
 import { PlatziProduct } from "../../types/product";
 import styled from "./Product.module.css";
 
@@ -9,6 +12,17 @@ const Product = ({
   category,
   images,
 }: PlatziProduct) => {
+  const cartCtx = useContext(CartContext);
+
+  const addToCartHandler = () => {
+    cartCtx.addItem({
+      id: id,
+      title: title,
+      amount: 1,
+      price: price,
+    });
+  };
+
   return (
     <>
       <div className={styled.productPage}>
@@ -20,7 +34,7 @@ const Product = ({
             <h3>{title}</h3>
             <p>{price}</p>
             <p>{category.name}</p>
-            <button>Add to cart</button>
+            <button onClick={addToCartHandler}>Add to cart</button>
           </div>
         </div>
         <div>
