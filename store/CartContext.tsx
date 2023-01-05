@@ -13,15 +13,20 @@ interface Props {
 }
 
 const CartContextProvider: React.FC<Props> = ({ children }) => {
-    const CartContext = {
-        items: [],
-        totalAmount: 0,
-        addItem: ,
-        removeItem: ,
-    }
+  const addItemToCartHandler = (item: PlatziProduct) => {};
 
-    
-  return <CartContext.Provider value={}>{children}</CartContext.Provider>;
+  const removeItemFromCartHandler = (id: number) => {};
+
+  const cartContext = {
+    items: [],
+    totalAmount: 0,
+    addItem: addItemToCartHandler,
+    removeItem: removeItemFromCartHandler,
+  };
+
+  return (
+    <CartContext.Provider value={cartContext}>{children}</CartContext.Provider>
+  );
 };
 
 export default CartContextProvider;
