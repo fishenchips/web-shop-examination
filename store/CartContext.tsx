@@ -1,4 +1,4 @@
-import { createContext, ReactNode } from "react";
+import { createContext, ReactNode, useReducer } from "react";
 import { PlatziProduct } from "../types/product";
 
 export const CartContext = createContext({
@@ -12,14 +12,36 @@ interface Props {
   children?: ReactNode;
 }
 
-const CartContextProvider: React.FC<Props> = ({ children }) => {
-  const addItemToCartHandler = (item: PlatziProduct) => {};
+/* Initial satte of our cart reducer */
+const defaultCartState = {
+  items: [],
+  totalAmount: 0,
+};
 
-  const removeItemFromCartHandler = (id: number) => {};
+const cartReducer = (state: any, action: any) => {
+  if (action.type === "ADD_ITEM") {
+  }
+
+  return defaultCartState;
+};
+
+const CartContextProvider: React.FC<Props> = ({ children }) => {
+  const [cartState, dispatchCartAction] = useReducer(
+    cartReducer,
+    defaultCartState
+  );
+
+  const addItemToCartHandler = (item: PlatziProduct) => {
+    dispatchCartAction({ type: "ADD_ITEM", item: item });
+  };
+
+  const removeItemFromCartHandler = (id: number) => {
+    dispatchCartAction({ type: "REMOVE_ITEM", id: id });
+  };
 
   const cartContext = {
-    items: [],
-    totalAmount: 0,
+    items: cartState.items,
+    totalAmount: cartState.totalAmount,
     addItem: addItemToCartHandler,
     removeItem: removeItemFromCartHandler,
   };
