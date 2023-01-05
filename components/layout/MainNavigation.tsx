@@ -14,8 +14,8 @@ export const MainNavigation = () => {
   const cartCtx = useContext(CartContext);
 
   /* transform array into a single number - takes two args, function and starting value (0) */
-  const numberOfCartItems = cartCtx.items.reduce((currentNum, item) => {
-    return currentNum + item; // add amount later;
+  const numberOfCartItems = cartCtx.items.reduce((currentNum, item: any) => {
+    return currentNum + item.amount;
   }, 0);
 
   return (

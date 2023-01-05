@@ -32,14 +32,16 @@ export const ProductItem: React.FC<Props> = ({ id, title, price, images }) => {
   };
 
   return (
-    <div className={styled.productBox} onClick={productPageHandler}>
-      <div className={styled.productImg}>
-        <img src={images[0]} alt={title} />
+    <div className={styled.productBox}>
+      <div className={styled.productDiv} onClick={productPageHandler}>
+        <div className={styled.productImg}>
+          <img src={images[0]} alt={title} />
+        </div>
+        <h5>{title}</h5>
+        <p>{price} kr</p>
       </div>
-      <h5>{title}</h5>
-      <p>{price} kr</p>
       <div>
-        <FontAwesomeIcon icon={faShoppingCart} />
+        <FontAwesomeIcon icon={faShoppingCart} onClick={addToCartHandler} />
         <FontAwesomeIcon icon={faHeart} />
       </div>
     </div>

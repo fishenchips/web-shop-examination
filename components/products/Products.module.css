@@ -15,10 +15,13 @@
   max-width: 300px;
   margin: 2px;
   padding: 10px;
-  cursor: pointer;
   text-align: center;
 
   border: 2px solid orange;
+}
+
+.productDiv {
+  cursor: pointer;
 }
 
 .productImg {
