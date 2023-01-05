@@ -1,10 +1,10 @@
 import { createContext, ReactNode, useReducer } from "react";
-import { PlatziProduct } from "../types/product";
+import { CartProduct } from "../types/product";
 
 export const CartContext = createContext({
   items: [],
   totalAmount: 0,
-  addItem: (item: PlatziProduct) => {},
+  addItem: (item: CartProduct) => {},
   removeItem: (id: number) => {},
 });
 
@@ -20,6 +20,16 @@ const defaultCartState = {
 
 const cartReducer = (state: any, action: any) => {
   if (action.type === "ADD_ITEM") {
+    /* return new array when adding items */
+    const updatedItems = state.items.concat(action.item);
+
+    const updatedTotalAmount =
+      state.totalAmount + action.item.price * action.item.amount;
+
+    return {
+      items: updatedItems,
+      totalAmount: updatedTotalAmount,
+    };
   }
 
   return defaultCartState;
@@ -31,7 +41,7 @@ const CartContextProvider: React.FC<Props> = ({ children }) => {
     defaultCartState
   );
 
-  const addItemToCartHandler = (item: PlatziProduct) => {
+  const addItemToCartHandler = (item: CartProduct) => {
     dispatchCartAction({ type: "ADD_ITEM", item: item });
   };
 
