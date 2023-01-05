@@ -3,7 +3,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
-import UserContextProvider from "../store/userContext";
+import UserContextProvider from "../store/UserContext";
 import { Layout } from "../components/layout/Layout";
 import { Loading } from "../components/loading/Loading";
 
