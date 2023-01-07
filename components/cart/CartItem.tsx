@@ -1,11 +1,9 @@
-import { CartProduct } from "../../types/product";
-
 type Props = {
   key: number;
   price: number;
   title: string;
   amount: string;
-  onAdd: (item: CartProduct) => void;
+  onAdd: () => void;
 };
 
 export const CartItem: React.FC<Props> = ({ price, title, amount, onAdd }) => {

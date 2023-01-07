@@ -44,24 +44,26 @@ const cartReducer = (state: any, action: any) => {
       updatedItems = state.items.concat(action.item);
     }
 
-    if (action.type === "REMOVE_ITEM") {
-      /* find product first */
-      const existingCartItemIndex = state.items.findIndex(
-        (id: number) => id === action.id
-      );
-
-      const existingCartItem = state.items[existingCartItemIndex];
-
-      /* only remove one */
-      const updatedTotalAmount = state.totalAmount - existingCartItem.price;
-    }
-
     return {
       items: updatedItems,
       totalAmount: updatedTotalAmount,
     };
   }
 
+  /* Needs separate return statement */
+  if (action.type === "REMOVE_ITEM") {
+    /* find product first */
+    const existingCartItemIndex = state.items.findIndex(
+      (item: CartProduct) => item.id === action.item.id
+    );
+
+    const existingCartItem = state.items[existingCartItemIndex];
+
+    /* only remove one */
+    const updatedTotalAmount = state.totalAmount - existingCartItem.price;
+  }
+
+  /* Fallback */
   return defaultCartState;
 };
 
