@@ -33,7 +33,7 @@ const Product = ({
           <div>
             <h3>{title}</h3>
             <p>{price}</p>
-            <p>{category.name}</p>
+            <p>{category?.name}</p>
             <button onClick={addToCartHandler}>Add to cart</button>
           </div>
         </div>

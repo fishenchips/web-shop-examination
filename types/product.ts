@@ -8,9 +8,9 @@ export interface PlatziProduct {
 }
 
 interface Category {
-  id: number;
-  name: string;
-  image: string;
+  id?: number;
+  name?: string;
+  image?: string;
 }
 
 type Images = string;
