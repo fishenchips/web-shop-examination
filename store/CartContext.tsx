@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useReducer } from "react";
+import { createContext, ReactNode, useEffect, useReducer } from "react";
 import { CartProduct } from "../types/product";
 
 export const CartContext = createContext({
@@ -92,6 +92,22 @@ const CartContextProvider: React.FC<Props> = ({ children }) => {
     cartReducer,
     defaultCartState
   );
+
+  /* using potential local storage to populate cartState.items */
+  useEffect(() => {
+    const cartItemsData = JSON.parse(
+      localStorage.getItem("cartItems") as string
+    );
+
+    if (cartItemsData) {
+      cartState.items = cartItemsData;
+    }
+  }, []);
+
+  /* Set items in local storage */
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartState.items));
+  }, [cartState.items]);
 
   const addItemToCartHandler = (item: CartProduct) => {
     dispatchCartAction({ type: "ADD_ITEM", item: item });
