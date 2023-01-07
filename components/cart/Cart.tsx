@@ -13,6 +13,10 @@ export const Cart: React.FC = () => {
     cartCtx.addItem({ ...item, amount: 1 });
   };
 
+  const removeFromCartHandler = (id: number) => {
+    cartCtx.removeItem(id);
+  };
+
   if (cartCtx.items.length < 1) {
     return <p>No items added to cart.</p>;
   }
@@ -25,7 +29,8 @@ export const Cart: React.FC = () => {
           title={item["title"]}
           price={item["price"]}
           amount={item["amount"]}
-          onAdd={addToCartHandler.bind(null, item)}
+          onAdd={() => addToCartHandler(item)}
+          onRemove={() => removeFromCartHandler(item["id"])}
         />
       ))}
       <p>Total: {totalAmount}</p>
