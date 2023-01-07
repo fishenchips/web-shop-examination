@@ -1,5 +1,4 @@
 type Props = {
-  key: number;
   price: number;
   title: string;
   amount: string;
@@ -8,7 +7,6 @@ type Props = {
 };
 
 export const CartItem: React.FC<Props> = ({
-  key,
   price,
   title,
   amount,
