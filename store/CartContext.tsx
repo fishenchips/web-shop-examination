@@ -109,6 +109,19 @@ const CartContextProvider: React.FC<Props> = ({ children }) => {
     localStorage.setItem("cartItems", JSON.stringify(cartState.items));
   }, [cartState.items]);
 
+  /* Total amount */
+  useEffect(() => {
+    const cartTotal = JSON.parse(localStorage.getItem("cartTotal") as string);
+
+    if (cartTotal) {
+      cartState.totalAmount = cartTotal;
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("cartTotal", JSON.stringify(cartState.totalAmount));
+  }, [cartState.totalAmount]);
+
   const addItemToCartHandler = (item: CartProduct) => {
     dispatchCartAction({ type: "ADD_ITEM", item: item });
   };

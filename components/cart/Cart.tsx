@@ -1,13 +1,14 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 import { CartContext } from "../../store/CartContext";
 import { CartProduct } from "../../types/product";
 import { CartItem } from "./CartItem";
+import styles from "./Cart.module.css";
 
 export const Cart: React.FC = () => {
   const cartCtx = useContext(CartContext);
 
-  const totalAmount = `${cartCtx.totalAmount} kr`;
+  let totalAmount = `${cartCtx.totalAmount} kr`;
 
   const addToCartHandler = (item: CartProduct) => {
     cartCtx.addItem({ ...item, amount: 1 });
@@ -23,16 +24,18 @@ export const Cart: React.FC = () => {
 
   return (
     <div>
-      {cartCtx.items.map((item) => (
-        <CartItem
-          key={item["id"]}
-          title={item["title"]}
-          price={item["price"]}
-          amount={item["amount"]}
-          onAdd={() => addToCartHandler(item)}
-          onRemove={() => removeFromCartHandler(item["id"])}
-        />
-      ))}
+      <ul className={styles.cartItems}>
+        {cartCtx.items.map((item) => (
+          <CartItem
+            key={item["id"]}
+            title={item["title"]}
+            price={item["price"]}
+            amount={item["amount"]}
+            onAdd={() => addToCartHandler(item)}
+            onRemove={() => removeFromCartHandler(item["id"])}
+          />
+        ))}
+      </ul>
       <p>Total: {totalAmount}</p>
     </div>
   );

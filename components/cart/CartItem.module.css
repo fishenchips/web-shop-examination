@@ -1,0 +1,27 @@
+.cartItem div {
+  display: flex;
+}
+
+.buttonDiv {
+  display: flex;
+  justify-content: space-evenly;
+  width: 10rem;
+
+  border: 1px solid blue;
+}
+
+.buttonDiv button {
+  all: revert;
+  background-color: rgb(138, 222, 13);
+  border-radius: 30px;
+  height: 2rem;
+  width: 2rem;
+  border: none;
+  font-size: 1.25rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.buttonDiv p {
+  font-size: 1.5rem;
+}

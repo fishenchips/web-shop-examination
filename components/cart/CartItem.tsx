@@ -1,3 +1,5 @@
+import styles from "./CartItem.module.css";
+
 type Props = {
   price: number;
   title: string;
@@ -14,14 +16,16 @@ export const CartItem: React.FC<Props> = ({
   onRemove,
 }) => {
   return (
-    <div>
-      <p>{title}</p>
-      <p>{price}</p>
+    <li className={styles.cartItem}>
       <div>
-        <button onClick={onRemove}>-</button>
-        <p>quantity: {amount}</p>
-        <button onClick={onAdd}>+</button>
+        <p>{title}</p>
+        <p>{price}</p>
+        <div className={styles.buttonDiv}>
+          <button onClick={onRemove}>-</button>
+          <p>{amount}</p>
+          <button onClick={onAdd}>+</button>
+        </div>
       </div>
-    </div>
+    </li>
   );
 };
