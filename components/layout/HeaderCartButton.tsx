@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
 import { CartContext } from "../../store/CartContext";
+import styles from "./HeaderCartButton.module.css";
 
 export const HeaderCartButton = () => {
   const cartCtx = useContext(CartContext);
@@ -15,7 +16,7 @@ export const HeaderCartButton = () => {
   return (
     <div>
       <FontAwesomeIcon icon={faShoppingCart} />
-      {numberOfCartItems}
+      <span className={styles.items}>{numberOfCartItems}</span>
     </div>
   );
 };
