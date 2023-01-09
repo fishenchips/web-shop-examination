@@ -18,6 +18,7 @@ export const Categories = () => {
       {categories?.map((category: Category) => (
         <CategoryItem
           key={category.id}
+          id={category.id}
           name={category.name}
           image={category.image}
         />
