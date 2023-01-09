@@ -1,16 +1,7 @@
-import { useQuery } from "@tanstack/react-query";
-
-import { getCategories } from "../../queries/categories/category-queries";
+import { Categories } from "../../components/categories/Categories";
 
 const CategoriesPage = () => {
-  const { data: categories } = useQuery({
-    queryKey: ["categories"],
-    queryFn: () => getCategories(),
-  });
-
-  console.log(categories);
-
-  return <p>hejj</p>;
+  return <Categories />;
 };
 
 export default CategoriesPage;
