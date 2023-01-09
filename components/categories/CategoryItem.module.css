@@ -1,0 +1,23 @@
+.categoryBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 33%;
+  max-width: 300px;
+  margin: 2px;
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+
+  border: 2px solid orange;
+}
+
+.categoryImg {
+  width: 200px;
+  height: 200px;
+}
+
+.categoryImg img {
+  width: 100%;
+  height: auto;
+}

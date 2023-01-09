@@ -1,3 +1,5 @@
+import styles from "./CategoryItem.module.css";
+
 interface Props {
   key: number;
   name: string;
@@ -5,9 +7,11 @@ interface Props {
 }
 
 export const CategoryItem: React.FC<Props> = ({ key: id, name, image }) => {
+  console.log(id);
+
   return (
-    <div>
-      <div>
+    <div className={styles.categoryBox}>
+      <div className={styles.categoryImg}>
         <img src={image} alt={name} />
       </div>
       <div>

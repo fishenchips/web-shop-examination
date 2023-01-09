@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getCategories } from "../../queries/categories/category-queries";
 import { Category } from "../../types/category";
 import { CategoryItem } from "./CategoryItem";
+import styles from "./Categories.module.css";
 
 export const Categories = () => {
   const { data: categories } = useQuery({
@@ -13,8 +14,8 @@ export const Categories = () => {
   console.log(categories);
 
   return (
-    <div>
-      {categories.map((category: Category) => (
+    <div className={styles.categories}>
+      {categories?.map((category: Category) => (
         <CategoryItem
           key={category.id}
           name={category.name}
