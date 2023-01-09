@@ -26,6 +26,8 @@ export const Cart: React.FC = () => {
 
   return (
     <div>
+      <h2 className={styles.cartHeader}>Cart</h2>
+      <hr className={styles.lineBreak} />
       <ul className={styles.cartItems}>
         {cartCtx.items.map((item) => (
           <CartItem

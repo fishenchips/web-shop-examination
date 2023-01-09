@@ -1,7 +1,7 @@
 .cartItem div {
   display: flex;
+  justify-content: space-around;
   height: 6rem;
-  border: 1px solid gold;
 
   margin-bottom: 1.5rem;
 }
@@ -14,18 +14,35 @@
   border: 1px solid blue;
 }
 
+.productInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 1.25rem;
+  color: black;
+}
+
+.price {
+  color: gray;
+}
+
 .buttonDiv button {
   all: revert;
-  background-color: rgb(138, 222, 13);
-  border-radius: 30px;
   height: 2rem;
   width: 2rem;
   border: none;
   font-size: 1.25rem;
   font-weight: 800;
   cursor: pointer;
+  background-color: white;
 }
 
 .buttonDiv p {
   font-size: 1.5rem;
+}
+
+.lineBreak {
+  margin-bottom: 1.5rem;
 }

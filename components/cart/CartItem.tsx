@@ -4,7 +4,7 @@ type Props = {
   price: number;
   title: string;
   image: string;
-  amount: string;
+  amount: number;
   onAdd: () => void;
   onRemove: () => void;
 };
@@ -19,20 +19,32 @@ export const CartItem: React.FC<Props> = ({
 }) => {
   const productPrice = `${price} kr`;
 
+  const productSum = `${price * amount} kr`;
+
   return (
-    <li className={styles.cartItem}>
-      <div>
+    <>
+      <li className={styles.cartItem}>
         <div>
-          <img src={image} alt={title} />
+          <div>
+            <img src={image} alt={title} />
+          </div>
+          <div className={styles.productInfo}>
+            <p className={styles.title}>{title}</p>
+            <p className={styles.price}>Price: {productPrice}</p>
+          </div>
+          <div className={styles.buttonDiv}>
+            <div>
+              <button onClick={onRemove}>-</button>
+              <p>{amount}</p>
+              <button onClick={onAdd}>+</button>
+            </div>
+            <div>
+              <p>{productSum}</p>
+            </div>
+          </div>
         </div>
-        <p>{title}</p>
-        <p>{productPrice}</p>
-        <div className={styles.buttonDiv}>
-          <button onClick={onRemove}>-</button>
-          <p>{amount}</p>
-          <button onClick={onAdd}>+</button>
-        </div>
-      </div>
-    </li>
+      </li>
+      <hr className={styles.lineBreak} />
+    </>
   );
 };
