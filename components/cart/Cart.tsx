@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 
 import { CartContext } from "../../store/CartContext";
 import { CartProduct } from "../../types/product";
@@ -22,6 +22,8 @@ export const Cart: React.FC = () => {
     return <p>No items added to cart.</p>;
   }
 
+  console.log(cartCtx.items);
+
   return (
     <div>
       <ul className={styles.cartItems}>
@@ -30,6 +32,7 @@ export const Cart: React.FC = () => {
             key={item["id"]}
             title={item["title"]}
             price={item["price"]}
+            image={item["image"]}
             amount={item["amount"]}
             onAdd={() => addToCartHandler(item)}
             onRemove={() => removeFromCartHandler(item["id"])}

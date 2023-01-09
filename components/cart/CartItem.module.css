@@ -1,5 +1,9 @@
 .cartItem div {
   display: flex;
+  height: 6rem;
+  border: 1px solid gold;
+
+  margin-bottom: 1.5rem;
 }
 
 .buttonDiv {

@@ -28,6 +28,7 @@ export const ProductItem: React.FC<Props> = ({ id, title, price, images }) => {
       title: title,
       amount: 1,
       price: price,
+      image: images[0],
     });
   };
 

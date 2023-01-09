@@ -20,6 +20,7 @@ const Product = ({
       title: title,
       amount: 1,
       price: price,
+      image: images[0],
     });
   };
 

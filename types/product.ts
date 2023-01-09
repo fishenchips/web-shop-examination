@@ -4,7 +4,7 @@ export interface PlatziProduct {
   price?: number;
   description?: string;
   category?: Category;
-  images?: Array<Images>;
+  images?: Array<Image>;
 }
 
 interface Category {
@@ -13,8 +13,9 @@ interface Category {
   image?: string;
 }
 
-type Images = string;
+type Image = string;
 
 export interface CartProduct extends PlatziProduct {
   amount?: number;
+  image?: string;
 }
