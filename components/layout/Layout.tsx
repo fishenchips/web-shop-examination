@@ -1,11 +1,11 @@
-import styled from "./Layout.module.css";
+import styles from "./Layout.module.css";
 import { MainNavigation } from "./MainNavigation";
 
 export const Layout = (props: any) => {
   return (
-    <div>
+    <div className={styles.outer}>
       <MainNavigation />
-      <main className={styled.main}>{props.children}</main>
+      <main className={styles.main}>{props.children}</main>
     </div>
   );
 };

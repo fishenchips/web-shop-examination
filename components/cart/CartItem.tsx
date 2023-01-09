@@ -35,12 +35,10 @@ export const CartItem: React.FC<Props> = ({
           <div className={styles.buttonDiv}>
             <div>
               <button onClick={onRemove}>-</button>
-              <p>{amount}</p>
+              <p className={styles.amount}>{amount}</p>
               <button onClick={onAdd}>+</button>
             </div>
-            <div>
-              <p>{productSum}</p>
-            </div>
+            <p className={styles.productSum}>{productSum}</p>
           </div>
         </div>
       </li>

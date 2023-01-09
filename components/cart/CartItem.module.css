@@ -10,8 +10,6 @@
   display: flex;
   justify-content: space-evenly;
   width: 10rem;
-
-  border: 1px solid blue;
 }
 
 .productInfo {
@@ -28,10 +26,13 @@
   color: gray;
 }
 
+.buttonDiv {
+  display: flex;
+  flex-direction: column;
+}
+
 .buttonDiv button {
   all: revert;
-  height: 2rem;
-  width: 2rem;
   border: none;
   font-size: 1.25rem;
   font-weight: 800;
@@ -39,10 +40,16 @@
   background-color: white;
 }
 
-.buttonDiv p {
-  font-size: 1.5rem;
+.amount {
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
 }
 
+.productSum {
+  color: gray;
+  text-align: center;
+}
 .lineBreak {
   margin-bottom: 1.5rem;
 }

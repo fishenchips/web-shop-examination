@@ -41,7 +41,7 @@ export const Cart: React.FC = () => {
           />
         ))}
       </ul>
-      <p>Total: {totalAmount}</p>
+      <p className={styles.sum}>Total: {totalAmount}</p>
     </div>
   );
 };
