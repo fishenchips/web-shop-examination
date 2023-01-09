@@ -9,7 +9,19 @@ import { Layout } from "../components/layout/Layout";
 import { Loading } from "../components/loading/Loading";
 
 const App = ({ Component, pageProps }: AppProps) => {
-  const queryClient = new QueryClient();
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        //create function later
+        /* onError: queryErrorHandler, */
+        staleTime: 600000,
+        cacheTime: 900000,
+        refetchOnMount: false,
+        refetchOnReconnect: false,
+        refetchOnWindowFocus: false,
+      },
+    },
+  });
 
   return (
     <ChakraProvider>
