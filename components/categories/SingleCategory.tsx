@@ -14,7 +14,7 @@ export const SingleCategory: React.FC<Props> = ({ param }) => {
   });
 
   const { data: products } = useQuery({
-    queryKey: ["category-by-category", param],
+    queryKey: ["products-by-category", param],
     queryFn: () => getProductsByCategoryId(param),
   });
 
