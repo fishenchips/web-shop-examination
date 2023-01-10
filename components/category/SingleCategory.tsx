@@ -3,6 +3,8 @@ import {
   getCategoryById,
   getProductsByCategoryId,
 } from "../../queries/categories/category-queries";
+import { Category } from "../../types/category";
+import { CategoryHeader } from "./CategoryHeader";
 
 interface Props {
   param: string | Array<string>;
@@ -22,5 +24,10 @@ export const SingleCategory: React.FC<Props> = ({ param }) => {
 
   console.log({ category });
 
-  return <p>{param}</p>;
+  return (
+    <>
+      <CategoryHeader name={category?.name} image={category?.image} />
+      <p>{param}</p>
+    </>
+  );
 };

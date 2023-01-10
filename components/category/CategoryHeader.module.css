@@ -1,0 +1,23 @@
+.categoryImg {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.categoryImg img {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.categoryImg h4 {
+  all: revert;
+  position: absolute;
+  top: 2%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+}
