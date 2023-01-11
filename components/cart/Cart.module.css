@@ -16,3 +16,22 @@
 .sum {
   font-weight: 500;
 }
+
+.checkoutFooter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.checkoutBtn {
+  all: revert;
+  height: 3rem;
+  width: 8rem;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(122, 171, 26);
+  font-weight: 700;
+
+  cursor: pointer;
+}

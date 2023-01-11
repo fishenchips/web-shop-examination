@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { useRouter } from "next/router";
 
 import { CartContext } from "../../store/CartContext";
 import { CartProduct } from "../../types/product";
@@ -7,6 +8,7 @@ import styles from "./Cart.module.css";
 
 export const Cart: React.FC = () => {
   const cartCtx = useContext(CartContext);
+  const router = useRouter();
 
   let totalAmount = `${cartCtx.totalAmount} kr`;
 
@@ -22,7 +24,9 @@ export const Cart: React.FC = () => {
     return <p>No items added to cart.</p>;
   }
 
-  console.log(cartCtx.items);
+  const handleCheckoutBtn = () => {
+    router.push("/checkout");
+  };
 
   return (
     <div>
@@ -41,7 +45,12 @@ export const Cart: React.FC = () => {
           />
         ))}
       </ul>
-      <p className={styles.sum}>Total: {totalAmount}</p>
+      <div className={styles.checkoutFooter}>
+        <p className={styles.sum}>Total: {totalAmount}</p>
+        <button className={styles.checkoutBtn} onClick={handleCheckoutBtn}>
+          Checkout
+        </button>
+      </div>
     </div>
   );
 };
