@@ -1,41 +1,49 @@
+import { RefObject } from "react";
+
 import styles from "./BillingDetails.module.css";
 import countryList from "../../data/countries.json";
 
-export const BillingDetails = () => {
-  console.log(countryList);
+interface Props {
+  firstName: RefObject<HTMLInputElement>;
+  lastName: RefObject<HTMLInputElement>;
+}
+
+export const BillingDetails: React.FC<Props> = ({ firstName, lastName }) => {
   return (
-    <table className={styles.billingForm}>
+    <form className={styles.billingForm}>
       <div>
         <label htmlFor="firstName">First Name</label>
-        <input type="text" name="firstName" />
+        <input type="text" name="firstName" ref={firstName} />
       </div>
       <div>
         <label htmlFor="lastName">Last Name</label>
-        <input type="text" name="lasttName" />
+        <input type="text" name="lasttName" ref={lastName} />
       </div>
       <div>
-        <label htmlFor="street">Street Address</label>
-        <input type="text" name="street" />
+        <label htmlFor="street">Street</label>
+        <input type="text" name="street" /* ref={streetRef} */ />
       </div>
       <div>
         <label htmlFor="zip">ZIP Code</label>
-        <input type="number" name="zip" />
+        <input type="number" name="zip" /* ref={zipRef} */ />
       </div>
       <div>
         <label htmlFor="city">City</label>
-        <input type="text" name="city" />
+        <input type="text" name="city" /* ref={cityRef} */ />
       </div>
       <div>
-        <label htmlFor="country"></label>
-        <select name="country" id="">
+        <label htmlFor="country">Country</label>
+        <select name="country" id="" /* ref={countryRef} */>
           <option disabled selected>
-            Choose country
+            Choose Country
           </option>
           {countryList.map((country) => (
-            <option value={country.code}>{country.name}</option>
+            <option key={country.code} value={country.code}>
+              {country.name}
+            </option>
           ))}
         </select>
       </div>
-    </table>
+    </form>
   );
 };

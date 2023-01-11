@@ -4,11 +4,26 @@
   align-items: center;
   width: 100%;
   max-width: 720px;
-
-  background-color: orange;
 }
 
-.billingForm input {
+.billingForm div {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+  width: 90%;
+
+  border: 1px solid blue;
+}
+
+.billingForm label {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.billingForm input,
+.billingForm select {
   all: revert;
   width: 90%;
+  height: 1.5rem;
+  font-size: 1.25rem;
 }
