@@ -5,9 +5,25 @@
 }
 
 .checkoutDetails {
-  min-width: 70%;
+  min-width: 60%;
+}
+
+.checkoutSection {
+  min-width: 40%;
+  margin: 1rem 0;
 }
 
 .checkoutProducts {
-  min-width: 30%;
+  width: 100%;
+  height: 450px;
+  overflow-y: auto;
+}
+
+.checkout h2 {
+  all: revert;
+}
+
+.checkoutBtn {
+  all: revert;
+  cursor: pointer;
 }

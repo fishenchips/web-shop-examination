@@ -1,8 +1,11 @@
-import { useContext, useRef, SyntheticEvent } from "react";
+import { useContext, useRef } from "react";
 
 import { CartContext } from "../../store/CartContext";
 import { BillingDetails } from "./BillingDetails";
+import { CheckoutProducts } from "./CheckoutProducts";
 import styles from "./Checkout.module.css";
+import { CartProduct } from "../../types/product";
+import { Payment } from "./Payment";
 
 export const Checkout = () => {
   const cartCtx = useContext(CartContext);
@@ -49,11 +52,29 @@ export const Checkout = () => {
           country={countryRef}
         />
       </section>
-      <section className={styles.checkoutProducts}>
-        <h2>Order Details</h2>
-        <p>hej</p>
+      <section className={styles.checkoutSection}>
+        <div>
+          <h2>Order Details</h2>
+          <div className={styles.checkoutProducts}>
+            {cartCtx.items?.map((product: CartProduct) => (
+              <CheckoutProducts
+                key={product.id}
+                id={product.id}
+                title={product.title}
+                price={product.price}
+                image={product.image}
+              />
+            ))}
+          </div>
+        </div>
+        <div>
+          <h2>Payment</h2>
+          <Payment total={cartCtx.totalAmount} />
+          <button className={styles.checkoutBtn} onClick={handleBillingDetails}>
+            Complete Purchase
+          </button>
+        </div>
       </section>
-      <button onClick={handleBillingDetails}>buy</button>
     </div>
   );
 };

@@ -1,0 +1,13 @@
+.checkoutProduct {
+  display: flex;
+  width: 100%;
+  margin-bottom: 1rem;
+
+  border: 1px solid green;
+}
+
+.checkoutImgDiv img {
+  width: 100%;
+  max-width: 100px;
+  height: auto;
+}
