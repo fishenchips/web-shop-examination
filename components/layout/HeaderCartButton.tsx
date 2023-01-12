@@ -16,7 +16,9 @@ export const HeaderCartButton = () => {
   return (
     <div>
       <FontAwesomeIcon icon={faShoppingCart} />
-      <span className={styles.items}>{numberOfCartItems}</span>
+      {numberOfCartItems ? (
+        <span className={styles.items}>{numberOfCartItems}</span>
+      ) : null}
     </div>
   );
 };

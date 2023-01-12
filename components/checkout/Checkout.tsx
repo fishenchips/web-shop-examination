@@ -6,8 +6,13 @@ import { CheckoutProducts } from "./CheckoutProducts";
 import styles from "./Checkout.module.css";
 import { CartProduct } from "../../types/product";
 import { Payment } from "./Payment";
+import { Order } from "../../types/order";
 
-export const Checkout = () => {
+interface Props {
+  onAddOrder: (orderData: Order) => Promise<void>;
+}
+
+export const Checkout: React.FC<Props> = ({ onAddOrder }) => {
   const cartCtx = useContext(CartContext);
 
   const firstNameRef = useRef<HTMLInputElement>(null);
@@ -45,7 +50,7 @@ export const Checkout = () => {
       payment: paymentDetails,
     };
 
-    console.log(checkoutSummary);
+    onAddOrder(checkoutSummary);
   };
 
   if (cartCtx.items.length < 1) return <p>No products in your cart</p>;
