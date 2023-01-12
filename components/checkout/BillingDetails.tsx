@@ -44,8 +44,8 @@ export const BillingDetails: React.FC<Props> = ({
       </div>
       <div>
         <label htmlFor="country">Country</label>
-        <select name="country" id="" ref={country}>
-          <option disabled selected>
+        <select name="country" id="" defaultValue="default" ref={country}>
+          <option value="default" disabled>
             Choose Country
           </option>
           {countryList.map((country) => (
