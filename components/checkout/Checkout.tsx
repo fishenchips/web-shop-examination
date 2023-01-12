@@ -34,7 +34,18 @@ export const Checkout = () => {
       country: enteredCountry,
     };
 
-    console.log(billingDetails);
+    const paymentDetails = {
+      sum: cartCtx.totalAmount,
+      items: cartCtx.items,
+      /* Add user here later */
+    };
+
+    const checkoutSummary = {
+      billing: billingDetails,
+      payment: paymentDetails,
+    };
+
+    console.log(checkoutSummary);
   };
 
   if (cartCtx.items.length < 1) return <p>No products in your cart</p>;
@@ -63,6 +74,7 @@ export const Checkout = () => {
                 title={product.title}
                 price={product.price}
                 image={product.image}
+                amount={product.amount}
               />
             ))}
           </div>

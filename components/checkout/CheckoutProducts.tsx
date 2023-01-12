@@ -5,6 +5,7 @@ interface Props {
   title?: string;
   price?: number;
   image?: string;
+  amount?: number;
 }
 
 export const CheckoutProducts: React.FC<Props> = ({
@@ -12,8 +13,15 @@ export const CheckoutProducts: React.FC<Props> = ({
   title,
   price,
   image,
+  amount,
 }) => {
+  if (typeof price !== "number" || typeof amount !== "number") return null;
+
   const productPrice = `${price} kr`;
+
+  const productAmount = `x ${amount}`;
+
+  const totalPrice = `total: ${price * amount} kr`;
 
   return (
     <div className={styles.checkoutProduct}>
@@ -25,6 +33,8 @@ export const CheckoutProducts: React.FC<Props> = ({
       <div>
         <p>{title}</p>
         <p>{productPrice}</p>
+        <p>{productAmount}</p>
+        <p>{totalPrice}</p>
       </div>
     </div>
   );
