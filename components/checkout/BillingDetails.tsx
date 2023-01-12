@@ -6,9 +6,20 @@ import countryList from "../../data/countries.json";
 interface Props {
   firstName: RefObject<HTMLInputElement>;
   lastName: RefObject<HTMLInputElement>;
+  street: RefObject<HTMLInputElement>;
+  zip: RefObject<HTMLInputElement>;
+  city: RefObject<HTMLInputElement>;
+  country: RefObject<HTMLSelectElement>;
 }
 
-export const BillingDetails: React.FC<Props> = ({ firstName, lastName }) => {
+export const BillingDetails: React.FC<Props> = ({
+  firstName,
+  lastName,
+  street,
+  zip,
+  city,
+  country,
+}) => {
   return (
     <form className={styles.billingForm}>
       <div>
@@ -21,19 +32,19 @@ export const BillingDetails: React.FC<Props> = ({ firstName, lastName }) => {
       </div>
       <div>
         <label htmlFor="street">Street</label>
-        <input type="text" name="street" /* ref={streetRef} */ />
+        <input type="text" name="street" ref={street} />
       </div>
       <div>
         <label htmlFor="zip">ZIP Code</label>
-        <input type="number" name="zip" /* ref={zipRef} */ />
+        <input type="number" name="zip" ref={zip} />
       </div>
       <div>
         <label htmlFor="city">City</label>
-        <input type="text" name="city" /* ref={cityRef} */ />
+        <input type="text" name="city" ref={city} />
       </div>
       <div>
         <label htmlFor="country">Country</label>
-        <select name="country" id="" /* ref={countryRef} */>
+        <select name="country" id="" ref={country}>
           <option disabled selected>
             Choose Country
           </option>

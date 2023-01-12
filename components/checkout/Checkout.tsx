@@ -40,7 +40,14 @@ export const Checkout = () => {
     <div className={styles.checkout}>
       <section className={styles.checkoutDetails}>
         <h2>Billing Details</h2>
-        <BillingDetails firstName={firstNameRef} lastName={lastNameRef} />
+        <BillingDetails
+          firstName={firstNameRef}
+          lastName={lastNameRef}
+          street={streetRef}
+          zip={zipRef}
+          city={cityRef}
+          country={countryRef}
+        />
       </section>
       <section className={styles.checkoutProducts}>
         <h2>Order Details</h2>
