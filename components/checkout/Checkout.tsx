@@ -15,6 +15,8 @@ interface Props {
 export const Checkout: React.FC<Props> = ({ onAddOrder }) => {
   const cartCtx = useContext(CartContext);
 
+  console.log(cartCtx);
+
   const firstNameRef = useRef<HTMLInputElement>(null);
   const lastNameRef = useRef<HTMLInputElement>(null);
   const streetRef = useRef<HTMLInputElement>(null);

@@ -1,8 +1,11 @@
 import { useToast } from "@chakra-ui/react";
+import { useRouter } from "next/router";
+
 import { Checkout } from "../../components/checkout/Checkout";
 import { Order } from "../../types/order";
 
 const CheckoutPage = () => {
+  const router = useRouter();
   const toast = useToast();
   /* Redirect to /complete-purchase/id for a summary!!  */
   const addOrderHandler = async (enteredOrderData: Order) => {
@@ -18,6 +21,8 @@ const CheckoutPage = () => {
       const data = await response.json();
 
       console.log(data);
+
+      router.push("/checkout/success");
 
       toast({
         title: "Order successfully placed.",

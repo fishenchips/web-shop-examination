@@ -6,6 +6,7 @@ export const CartContext = createContext({
   totalAmount: 0,
   addItem: (item: CartProduct) => {},
   removeItem: (id: number) => {},
+  clearCart: () => {},
 });
 
 interface Props {
@@ -83,6 +84,13 @@ const cartReducer = (state: any, action: any) => {
     };
   }
 
+  if (action.type === "CLEAR_CART") {
+    return {
+      items: [],
+      totalAmount: 0,
+    };
+  }
+
   /* Fallback */
   return defaultCartState;
 };
@@ -130,11 +138,16 @@ const CartContextProvider: React.FC<Props> = ({ children }) => {
     dispatchCartAction({ type: "REMOVE_ITEM", id: id });
   };
 
+  const clearItemsFromCartHandler = () => {
+    dispatchCartAction({ type: "CLEAR_CART" });
+  };
+
   const cartContext = {
     items: cartState.items,
     totalAmount: cartState.totalAmount,
     addItem: addItemToCartHandler,
     removeItem: removeItemFromCartHandler,
+    clearCart: clearItemsFromCartHandler,
   };
 
   return (
