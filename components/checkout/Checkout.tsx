@@ -1,4 +1,5 @@
 import { useContext, useRef } from "react";
+import { useToast } from "@chakra-ui/react";
 
 import { CartContext } from "../../store/CartContext";
 import { BillingDetails } from "./BillingDetails";
@@ -14,6 +15,7 @@ interface Props {
 
 export const Checkout: React.FC<Props> = ({ onAddOrder }) => {
   const cartCtx = useContext(CartContext);
+  const toast = useToast();
 
   console.log(cartCtx);
 
@@ -31,6 +33,23 @@ export const Checkout: React.FC<Props> = ({ onAddOrder }) => {
     const enteredZip = zipRef?.current?.value;
     const enteredCity = cityRef?.current?.value;
     const enteredCountry = countryRef?.current?.value;
+
+    if (
+      enteredFirstName?.trim() == "" ||
+      enteredLastName?.trim() == "" ||
+      enteredStreet?.trim() == "" ||
+      enteredZip?.trim() == "" ||
+      enteredCity?.trim() == "" ||
+      enteredCountry === "default"
+    ) {
+      return toast({
+        title: "Order completion failed.",
+        description: "Please fill in all billing details fields..",
+        status: "error",
+        duration: 9000,
+        isClosable: true,
+      });
+    }
 
     const billingDetails = {
       firstName: enteredFirstName,

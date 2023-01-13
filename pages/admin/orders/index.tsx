@@ -14,12 +14,12 @@ const AdminOrders = (props: any) => {
       <div>
         {orders.map((order: any) => (
           <div key={order.id}>
-            <p>{order.id}</p>
-            <p>{order.sum}</p>
+            <p>Order id: {order.id}</p>
+            <p>{order.payment.sum} kr</p>
             {order.payment.items.map((product: any) => (
               <div key={product.id}>
-                <p>amount: {product.amount}</p>
                 <p>{product.title}</p>
+                <p>amount: {product.amount}</p>
               </div>
             ))}
           </div>
