@@ -6,7 +6,6 @@ import {
 import { PlatziProduct } from "../../../types/product";
 
 const ProductPage = (props: any) => {
-  console.log(1);
   const product = props.productData;
 
   return (
@@ -42,9 +41,7 @@ export async function getStaticProps(context: any) {
   /* needs to be the same as [folderName]   */
   const pid = context.params.pid;
 
-  console.log(1);
   const selectedProduct = await getProductById(pid);
-  console.log(2);
 
   return {
     props: {

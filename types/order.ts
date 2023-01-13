@@ -1,6 +1,9 @@
+import { ObjectId } from "mongodb";
+
 export interface Order {
   billing?: BillingDetails;
   payment?: PaymentDetails;
+  id?: ObjectId;
 }
 
 interface BillingDetails {

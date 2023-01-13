@@ -1,11 +1,55 @@
-import { AdminNavigation } from "../../../components/layout/AdminNavigation";
+import { MongoClient } from "mongodb";
 
-const AdminOrders = () => {
+import { AdminNavigation } from "../../../components/layout/AdminNavigation";
+import { apiKey } from "../../../keys/apiKeys";
+
+const AdminOrders = (props: any) => {
+  const { orders } = props;
+
+  console.log(orders);
+
   return (
     <>
-      <AdminNavigation /> <p>Admin Orders</p>
+      <AdminNavigation />
+      <div>
+        {orders.map((order: any) => (
+          <div key={order.id}>
+            <p>{order.id}</p>
+            <p>{order.sum}</p>
+            {order.payment.items.map((product: any) => (
+              <div key={product.id}>
+                <p>amount: {product.amount}</p>
+                <p>{product.title}</p>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
     </>
   );
 };
 
 export default AdminOrders;
+
+export async function getStaticProps() {
+  const client = await MongoClient.connect(apiKey);
+
+  const db = client.db();
+
+  const ordersCollection = db.collection("orders");
+
+  const orders = await ordersCollection.find().toArray();
+
+  client.close();
+
+  return {
+    props: {
+      orders: orders.map((order: any) => ({
+        billing: order.billing,
+        payment: order.payment,
+        id: order._id.toString(),
+      })),
+    },
+    revalidate: 10,
+  };
+}
