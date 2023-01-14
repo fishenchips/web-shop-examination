@@ -34,6 +34,15 @@
   height: auto;
 }
 
+.pagainationDiv {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 1rem auto;
+  width: 33%;
+  max-width: 300px;
+}
+
 .loadMore {
   all: revert;
 }

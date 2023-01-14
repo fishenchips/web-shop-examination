@@ -11,8 +11,6 @@ const maxProduct = 200;
 export const Products = () => {
   const [currentPage, setCurrentPage] = useState<number>(0);
 
-  const pageNumber = currentPage === 0 ? 1 : currentPage / 30 + 1;
-
   const queryClient = useQueryClient();
 
   const { data: products } = useQuery(
@@ -42,6 +40,9 @@ export const Products = () => {
     setCurrentPage((currentPage) => currentPage + 30);
   };
 
+  /* API goes by number of products rather than page, so making a conversion */
+  const pageNumber = currentPage === 0 ? 1 : currentPage / 30 + 1;
+
   return (
     <>
       <div className={styles.products}>
@@ -55,7 +56,7 @@ export const Products = () => {
           />
         ))}
       </div>
-      <div>
+      <div className={styles.pagainationDiv}>
         <button
           className={styles.loadMore}
           disabled={currentPage <= 0}
