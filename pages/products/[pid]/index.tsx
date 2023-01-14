@@ -22,6 +22,7 @@ const ProductPage = (props: any) => {
 
 export default ProductPage;
 
+/* change to normal api call so all product pages work! keeping code for now */
 export const getStaticPaths = async () => {
   const products = await getProducts(0, 30);
 

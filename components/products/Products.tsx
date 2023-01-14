@@ -6,7 +6,7 @@ import styles from "./Products.module.css";
 import { ProductItem } from "./ProductItem";
 import { getProducts } from "../../queries/products/product-queries";
 
-const maxProduct = 200;
+const maxProduct = 220;
 
 export const Products = () => {
   const [currentPage, setCurrentPage] = useState<number>(0);
@@ -21,6 +21,8 @@ export const Products = () => {
     }
   );
 
+  console.log(products);
+
   /* Prefetch next page whenever current page changes */
   useEffect(() => {
     if (currentPage < maxProduct) {
@@ -29,6 +31,7 @@ export const Products = () => {
       queryClient.prefetchQuery(["products", nextPage], () =>
         getProducts(nextPage)
       );
+      window.scrollTo(0, 0);
     }
   }, [currentPage, queryClient]);
 
