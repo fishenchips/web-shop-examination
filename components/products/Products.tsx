@@ -13,15 +13,14 @@ export const Products = () => {
 
   const queryClient = useQueryClient();
 
-  const { data: products } = useQuery(
+  const fallback: Array<PlatziProduct> = [];
+  const { data: products = fallback } = useQuery(
     ["products", currentPage],
     () => getProducts(currentPage),
     {
       keepPreviousData: true,
     }
   );
-
-  console.log(products);
 
   /* Prefetch next page whenever current page changes */
   useEffect(() => {
@@ -59,23 +58,25 @@ export const Products = () => {
           />
         ))}
       </div>
-      <div className={styles.pagainationDiv}>
-        <button
-          className={styles.loadMore}
-          disabled={currentPage <= 0}
-          onClick={handlePreviousPage}
-        >
-          Previous Page
-        </button>
-        <p>Page: {pageNumber}</p>
-        <button
-          className={styles.loadMore}
-          disabled={currentPage >= 180}
-          onClick={handleNextPage}
-        >
-          Next Page
-        </button>
-      </div>
+      {products.length > 0 && (
+        <div className={styles.pagainationDiv}>
+          <button
+            className={styles.loadMore}
+            disabled={currentPage <= 0}
+            onClick={handlePreviousPage}
+          >
+            Previous Page
+          </button>
+          <p>Page: {pageNumber}</p>
+          <button
+            className={styles.loadMore}
+            disabled={currentPage >= 180}
+            onClick={handleNextPage}
+          >
+            Next Page
+          </button>
+        </div>
+      )}
     </>
   );
 };
