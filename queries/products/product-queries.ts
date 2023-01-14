@@ -14,8 +14,8 @@ export const getProductById = async (id: number) => {
   return response.json();
 };
 
-export const deleteProduct = async () => {
-  return fetch("https://api.escuelajs.co/api/v1/products/200", {
+export const deleteProduct = async (id: number) => {
+  return fetch(`https://api.escuelajs.co/api/v1/products/${id}`, {
     method: "DELETE",
   });
 };
