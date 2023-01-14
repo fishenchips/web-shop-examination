@@ -10,8 +10,6 @@
   flex-direction: column;
   margin: 1rem 0;
   width: 90%;
-
-  border: 1px solid blue;
 }
 
 .billingForm label {

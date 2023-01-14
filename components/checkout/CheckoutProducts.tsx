@@ -21,7 +21,7 @@ export const CheckoutProducts: React.FC<Props> = ({
 
   const productAmount = `x ${amount}`;
 
-  const totalPrice = `total: ${price * amount} kr`;
+  const totalPrice = `Total: ${price * amount} kr`;
 
   return (
     <div className={styles.checkoutProduct}>
