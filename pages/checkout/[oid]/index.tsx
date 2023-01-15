@@ -1,23 +1,22 @@
-import Link from "next/link";
 import { useRouter } from "next/router";
+
+import { OrderConfirmation } from "../../../components/checkout/OrderConfirmation";
 
 const CheckoutSuccess = () => {
   const router = useRouter();
 
   console.log(router);
 
-  const { firstName, lastName, street, zip, city, country } = JSON.parse(
-    router.query.billing
-  );
+  const billing = JSON.parse(router.query.billing);
 
-  const { sum, items } = JSON.parse(router.query.payment);
+  const payment = JSON.parse(router.query.payment);
 
-  console.log(items);
   return (
-    <>
-      <h2>Thank you for your order</h2>
-      <Link href="/">Continue Shopping</Link>
-    </>
+    <OrderConfirmation
+      id={router.query.oid}
+      billing={billing}
+      payment={payment}
+    />
   );
 };
 

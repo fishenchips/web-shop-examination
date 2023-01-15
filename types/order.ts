@@ -6,7 +6,7 @@ export interface Order {
   id?: ObjectId;
 }
 
-interface BillingDetails {
+export interface BillingDetails {
   firstName?: string;
   lastName?: string;
   street?: string;
@@ -15,7 +15,7 @@ interface BillingDetails {
   country?: string;
 }
 
-interface PaymentDetails {
+export interface PaymentDetails {
   sum?: number;
   items?: Array<OrderProduct>;
   /* Add user here later */
