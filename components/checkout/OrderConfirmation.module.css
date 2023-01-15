@@ -1,0 +1,42 @@
+.header {
+  all: revert;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.details {
+  width: 50%;
+  margin: 0 auto;
+
+  border: 1px solid red;
+}
+
+.orderId {
+  text-transform: uppercase;
+  font-weight: 700;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid lightgray;
+}
+
+.orderTotal {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.totalHeader,
+.userHeader {
+  font-weight: 700;
+}
+
+.frontPage {
+  text-align: center;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
+.frontPage:hover {
+  color: darkorange;
+  text-decoration: underline;
+}

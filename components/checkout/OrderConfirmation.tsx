@@ -19,22 +19,29 @@ export const OrderConfirmation: React.FC<Props> = ({
   return (
     <>
       <h2 className={styles.header}>Thank you for your order.</h2>
+      <div className={styles.details}>
+        <p className={styles.orderId}>Order details - {id}</p>
+        <div className={styles.orderTotal}>
+          <p className={styles.totalHeader}>Order total</p>
+          <p className={styles.totalSum}>{orderTotal}</p>
+        </div>
 
-      <p>Order details - {id}</p>
-      <div>
-        <p>Order Total</p>
-        <p>{orderTotal}</p>
+        <div>
+          <p className={styles.userHeader}>User details</p>
+          <address>
+            {firstName} {lastName}
+            <br />
+            {street}
+            <br />
+            {zip} {city}
+            <br />
+            {country}
+          </address>
+        </div>
       </div>
-      <address>
-        {firstName} {lastName}
-        <br />
-        {street}
-        <br />
-        {zip} {city}
-        <br />
-        {country}
-      </address>
-      <Link href="/">Continue Shopping</Link>
+      <div className={styles.frontPage}>
+        <Link href="/">Continue Shopping</Link>
+      </div>
     </>
   );
 };
