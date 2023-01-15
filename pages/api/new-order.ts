@@ -14,7 +14,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   if (req.method === "POST") {
     const data = req.body;
 
-    const client = await MongoClient.connect(apiKey);
+    const client = await MongoClient.connect(process.env.DB_KEY);
 
     const db = client.db();
 
