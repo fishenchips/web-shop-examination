@@ -34,7 +34,8 @@ export const Checkout: React.FC<Props> = ({ onAddOrder }) => {
     const enteredCity = cityRef?.current?.value;
     const enteredCountry = countryRef?.current?.value;
 
-    if (
+    /* commenting out for now */
+    /*   if (
       enteredFirstName?.trim() == "" ||
       enteredLastName?.trim() == "" ||
       enteredStreet?.trim() == "" ||
@@ -49,7 +50,7 @@ export const Checkout: React.FC<Props> = ({ onAddOrder }) => {
         duration: 9000,
         isClosable: true,
       });
-    }
+    } */
 
     const billingDetails = {
       firstName: enteredFirstName,

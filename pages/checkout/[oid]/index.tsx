@@ -1,13 +1,21 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 
-import { Order } from "../../../types/order";
+const CheckoutSuccess = () => {
+  const router = useRouter();
 
-const CheckoutSuccess = (props: any) => {
-  console.log(props);
+  console.log(router);
 
+  const { firstName, lastName, street, zip, city, country } = JSON.parse(
+    router.query.billing
+  );
+
+  const { sum, items } = JSON.parse(router.query.payment);
+
+  console.log(items);
   return (
     <>
-      <p>Order was placed successfully, hooray!</p>
+      <h2>Thank you for your order</h2>
       <Link href="/">Continue Shopping</Link>
     </>
   );

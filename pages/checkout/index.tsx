@@ -26,7 +26,16 @@ const CheckoutPage = () => {
 
       console.log(data);
 
-      router.push(`/checkout/${data._id}`);
+      router.push(
+        {
+          pathname: `/checkout/${data._id}`,
+          query: {
+            billing: JSON.stringify(data.billing),
+            payment: JSON.stringify(data.payment),
+          },
+        },
+        `/checkout/${data._id}`
+      );
 
       cartCtx.clearCart();
 
