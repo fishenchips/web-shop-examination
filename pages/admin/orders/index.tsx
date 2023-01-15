@@ -1,10 +1,16 @@
+import { useQuery } from "@tanstack/react-query";
 import { MongoClient } from "mongodb";
 
 import { AdminNavigation } from "../../../components/layout/AdminNavigation";
 import { apiKey } from "../../../keys/apiKeys";
+import { getUsers } from "../../../queries/users/user-queries";
 
 const AdminOrders = (props: any) => {
   const { orders } = props;
+
+  const { data } = useQuery(["users"], () => getUsers());
+
+  console.log({ data });
 
   console.log(orders);
 
