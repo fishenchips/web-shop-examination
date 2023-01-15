@@ -22,11 +22,11 @@ const CheckoutPage = () => {
         },
       });
 
-      const data = await response.json();
+      const { data } = await response.json();
 
       console.log(data);
 
-      router.push(`/checkout/success`);
+      router.push(`/checkout/${data._id}`);
 
       cartCtx.clearCart();
 

@@ -27,6 +27,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
     client.close();
 
     res.status(201).json({ message: "Order sent.", data: data });
+
+    return data;
   }
 };
 

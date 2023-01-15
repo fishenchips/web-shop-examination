@@ -8,11 +8,14 @@ import CartContextProvider from "../store/CartContext";
 import { Layout } from "../components/layout/Layout";
 import { Loading } from "../components/loading/Loading";
 import { queryClient } from "../queries/queryClient/queryClient";
+import { getUsers } from "../queries/users/user-queries";
 
 /* ToastContainer is required to render my standalone toast for errors */
 const { ToastContainer } = createStandaloneToast();
 
 const App = ({ Component, pageProps }: AppProps) => {
+  queryClient.prefetchQuery(["users"], () => getUsers());
+
   return (
     <ChakraProvider>
       <QueryClientProvider client={queryClient}>
