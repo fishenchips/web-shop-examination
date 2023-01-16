@@ -1,7 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { MongoClient } from "mongodb";
 
-import { apiKey } from "../../keys/apiKeys";
 import { Order } from "../../types/order";
 
 type Data = {
@@ -14,7 +13,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   if (req.method === "POST") {
     const data = req.body;
 
-    const client = await MongoClient.connect(process.env.DB_KEY);
+    const client = await MongoClient.connect(process.env.DB_KEY as string);
 
     const db = client.db();
 

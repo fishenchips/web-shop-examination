@@ -5,3 +5,9 @@ export const getUsers = async (): Promise<Array<User>> => {
 
   return response.json();
 };
+
+export const getUserById = async (id: string): Promise<User> => {
+  const response = await fetch(`/api/users/${id}`);
+
+  return response.json();
+};
