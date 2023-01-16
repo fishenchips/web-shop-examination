@@ -6,8 +6,10 @@ export const getUsers = async (): Promise<Array<User>> => {
   return response.json();
 };
 
-export const getUserById = async (id: string): Promise<User> => {
-  const response = await fetch(`/api/users/${id}`);
+/* Log in function, fill data with user that is logged in */
+export const getUser = async (user: User | null): Promise<User | null> => {
+  if (!user) return null;
+  const response = await fetch(`/api/users/${user.id}`);
 
   return response.json();
 };
