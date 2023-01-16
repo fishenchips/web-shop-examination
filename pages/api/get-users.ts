@@ -4,14 +4,14 @@ import { MongoClient } from "mongodb";
 import { User } from "../../types/user";
 
 type Data = {
-  users: Array<User>;
+  users?: Array<User>;
 };
 
 const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   if (req.method === "GET") {
     const data = req.body;
 
-    const client = await MongoClient.connect(process.env.DB_KEY);
+    const client = await MongoClient.connect(process.env.DB_KEY as string);
 
     const db = client.db();
 
@@ -21,7 +21,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
 
     console.log(result);
 
-    res.status(200).json(result);
+    res.status(200).json(result as Data);
   }
 };
 
