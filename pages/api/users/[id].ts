@@ -22,6 +22,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
       _id: new ObjectId(id as string),
     });
 
+    client.close();
+
     if (!result) {
       res.status(404).json({ message: "User not found" });
     }
