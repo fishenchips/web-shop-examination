@@ -1,7 +1,13 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { MongoClient } from "mongodb";
 
-const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+import { User } from "../../types/user";
+
+type Data = {
+  users: Array<User>;
+};
+
+const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   if (req.method === "GET") {
     const data = req.body;
 
