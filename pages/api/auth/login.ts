@@ -8,10 +8,6 @@ const secret = process.env.SECRET;
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { enteredUserName, enteredPassword } = req.body;
 
-  console.log(req.body, "req");
-
-  console.log(enteredPassword, "enteredpass");
-
   const client = await MongoClient.connect(process.env.DB_KEY as string);
 
   const db = client.db();
@@ -23,13 +19,11 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     password: enteredPassword,
   });
 
-  console.log(DBUser, "hasdbas");
-
+  /* Check if DB user exists */
   if (
     DBUser?.userName === enteredUserName &&
     DBUser?.password === enteredPassword
   ) {
-    /* Check in DB user exists */
     const token = sign(
       {
         exp: Math.floor(Date.now() / 1000) + 60 * 60 * 24 * 30, // 30 days

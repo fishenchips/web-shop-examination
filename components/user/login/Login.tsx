@@ -16,8 +16,11 @@ export const Login = () => {
   const handleLoginUser = async (e: SyntheticEvent) => {
     e.preventDefault();
 
-    const enteredUserName = userNameRef?.current?.value;
-    const enteredPassword = passwordRef?.current?.value;
+    const enteredUserName = userNameRef.current?.value;
+    const enteredPassword = passwordRef.current?.value;
+
+    if (enteredUserName?.trim() == "" || enteredPassword?.trim() == "")
+      return alert("Please enter your credentials");
 
     const credentials: Login = { enteredUserName, enteredPassword };
 
