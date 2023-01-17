@@ -24,7 +24,7 @@ export const UserForm: React.FC<Props> = ({ values, onAddUser }) => {
     const userData = {
       userName: enteredUserName,
       password: enteredPassword,
-      role: "admin",
+      role: "user",
     };
 
     onAddUser(userData);
