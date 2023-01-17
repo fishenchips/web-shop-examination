@@ -3,6 +3,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 /* far from the best solution but its a start */
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+  console.log({ req });
   const { cookies } = req;
 
   const jwt = cookies.AdminJWT || cookies.UserJWT;
@@ -11,7 +12,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     return res.status(401).json({ message: "Unathorized access" });
   }
 
-  res.status(200).json({ message: "Access granted" });
+  res.status(200).json({ message: "Access granted", req });
 };
 
 export default handler;

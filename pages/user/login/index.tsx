@@ -27,6 +27,7 @@ const LoginPage = () => {
         duration: 9000,
         isClosable: true,
       });
+      localStorage.setItem("userId", JSON.stringify(data.DBUser._id));
 
       router.push("/user");
     }
@@ -41,13 +42,7 @@ const LoginPage = () => {
       });
     }
 
-    console.log(data);
-  };
-
-  const handleLogOut = async () => {
-    const response = await fetch("/api/auth/logout");
-
-    console.log(response);
+    console.log({ data });
   };
 
   return <Login onLogin={handleLoginUser} />;

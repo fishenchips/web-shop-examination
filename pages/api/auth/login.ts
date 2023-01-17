@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { Db, MongoClient } from "mongodb";
+import { MongoClient } from "mongodb";
 import { sign } from "jsonwebtoken";
 import { serialize } from "cookie";
 
@@ -58,7 +58,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
     client.close();
 
-    res.status(200).json({ message: "Success" });
+    res.status(200).json({ message: "Success", DBUser });
   } else {
     res.status(401).json({ message: "Invalid credentials." });
   }

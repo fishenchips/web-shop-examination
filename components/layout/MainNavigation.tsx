@@ -6,6 +6,14 @@ import styled from "./MainNavigation.module.css";
 import { HeaderCartButton } from "./HeaderCartButton";
 
 export const MainNavigation = () => {
+  const handleLogOut = async () => {
+    const response = await fetch("/api/auth/logout");
+
+    localStorage.removeItem("userId");
+
+    return response.json();
+  };
+
   return (
     <header className={styled.header}>
       <div className={styled.logo}>
@@ -36,6 +44,7 @@ export const MainNavigation = () => {
               <FontAwesomeIcon icon={faHeart} />
             </Link>
           </li>
+          <li onClick={handleLogOut}>Logout</li>
         </ul>
       </nav>
     </header>
