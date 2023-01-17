@@ -13,3 +13,9 @@ export const getUser = async (user: User | null): Promise<User | null> => {
 
   return response.json();
 };
+
+export const isUserLoggedIn = async () => {
+  const response = await fetch("/api/users/get-user");
+
+  return response.json();
+};

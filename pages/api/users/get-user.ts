@@ -11,7 +11,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     return res.status(401).json({ message: "Unathorized access" });
   }
 
-  res.status(200).json({ message: "Access granted." });
+  res.status(200).json({ message: "Access granted" });
 };
 
 export default handler;

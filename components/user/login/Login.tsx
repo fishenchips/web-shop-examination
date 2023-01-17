@@ -1,5 +1,9 @@
-import { ToastId } from "@chakra-ui/react";
-import { LoginUser, User } from "../../../types/user";
+import { useToast, ToastId } from "@chakra-ui/react";
+import { useQuery } from "@tanstack/react-query";
+import { useRouter } from "next/router";
+
+import { isUserLoggedIn } from "../../../queries/users/user-queries";
+import { LoginUser } from "../../../types/user";
 import { UserForm } from "../userForm/UserForm";
 
 interface Props {
@@ -7,6 +11,24 @@ interface Props {
 }
 
 export const Login: React.FC<Props> = ({ onLogin }) => {
+  const router = useRouter();
+  const toast = useToast();
+
+  const { data } = useQuery(["user"], () => isUserLoggedIn());
+
+  /* User cannot log in again */
+  if (data?.message === "Access granted") {
+    toast.closeAll();
+    toast({
+      title: `You are already logged in`,
+      description: "Redirected to user page.",
+      status: "info",
+      duration: 9000,
+      isClosable: true,
+    });
+    router.push("/user");
+  }
+
   const formValues = {
     header: "Login",
     btnText: "Login",

@@ -2,15 +2,13 @@ import { useToast } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 
 import { Login } from "../../../components/user/login/Login";
-import { LoginUser, User } from "../../../types/user";
+import { LoginUser } from "../../../types/user";
 
 const LoginPage = () => {
   const toast = useToast();
   const router = useRouter();
 
   const handleLoginUser = async (enteredLoginData: LoginUser) => {
-    /*     const credentials: LoginUser = enteredLoginData; */
-
     const response = await fetch("/api/auth/login", {
       method: "POST",
       body: JSON.stringify(enteredLoginData),
