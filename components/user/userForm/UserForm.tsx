@@ -1,3 +1,4 @@
+import { ToastId } from "@chakra-ui/react";
 import { useRef, SyntheticEvent } from "react";
 
 import { User } from "../../../types/user";
@@ -11,7 +12,7 @@ type Props = {
     notEntered: string;
     taken?: string;
   };
-  onAddUser: (userData: User) => Promise<void>;
+  onAddUser: (userData: User) => Promise<void | ToastId>;
 };
 
 export const UserForm: React.FC<Props> = ({ values, onAddUser }) => {

@@ -21,7 +21,7 @@ const RegisterPage = () => {
 
       const data = await response.json();
 
-      console.log(data);
+      /* If user already exists, return error toast */
       if (data.message === "Username already taken.") {
         return toast({
           title: "Username already taken",
