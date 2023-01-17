@@ -45,7 +45,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     res.setHeader("Set-Cookie", serialized);
     res.status(200).json({ message: "Success" });
   } else {
-    res.json({ message: "Invalid credentials." });
+    res.status(401).json({ message: "Invalid credentials." });
   }
 };
 

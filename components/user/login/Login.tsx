@@ -37,6 +37,12 @@ export const Login = () => {
     console.log(user);
   };
 
+  const handleLogOut = async () => {
+    const response = await fetch("/api/auth/logout");
+
+    console.log(response);
+  };
+
   return (
     <>
       <form onSubmit={handleLoginUser} className={styled.userForm}>
@@ -53,6 +59,7 @@ export const Login = () => {
           <button type="submit">Log in</button>
         </div>
       </form>
+      <button onClick={handleLogOut}>log out</button>
       <div className={styled.linkDiv}>
         <Link href="/user/register" className={styled.link}>
           Not a member? Join here!
