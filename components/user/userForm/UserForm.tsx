@@ -1,8 +1,9 @@
 import { ToastId } from "@chakra-ui/react";
 import { useRef, SyntheticEvent } from "react";
+import Link from "next/link";
 
 import { User } from "../../../types/user";
-import styled from "./UserForm.module.css";
+import styles from "./UserForm.module.css";
 
 type Props = {
   values: {
@@ -11,6 +12,8 @@ type Props = {
     type: string;
     notEntered: string;
     taken?: string;
+    linkURL: string;
+    linkText: string;
   };
   onAddUser: (userData: User) => Promise<void | ToastId>;
 };
@@ -51,19 +54,26 @@ export const UserForm: React.FC<Props> = ({ values, onAddUser }) => {
   };
 
   return (
-    <form onSubmit={handleSubmitUser} className={styled.userForm}>
-      <h2>{values.header}</h2>
-      <div>
-        <label htmlFor="userName">Username</label>
-        <input type="text" name="userName" ref={userNameRef} />
+    <>
+      <form onSubmit={handleSubmitUser} className={styles.userForm}>
+        <h2>{values.header}</h2>
+        <div>
+          <label htmlFor="userName">Username</label>
+          <input type="text" name="userName" ref={userNameRef} />
+        </div>
+        <div>
+          <label htmlFor="password">Password</label>
+          <input type="password" name="password" ref={passwordRef} />
+        </div>
+        <div>
+          <button type="submit">{values.btnText}</button>
+        </div>
+      </form>
+      <div className={styles.linkDiv}>
+        <Link href={values.linkURL} className={styles.link}>
+          {values.linkText}
+        </Link>
       </div>
-      <div>
-        <label htmlFor="password">Password</label>
-        <input type="password" name="password" ref={passwordRef} />
-      </div>
-      <div>
-        <button type="submit">{values.btnText}</button>
-      </div>
-    </form>
+    </>
   );
 };

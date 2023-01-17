@@ -38,3 +38,12 @@
 .userForm button:hover {
   background-color: olivedrab;
 }
+
+.linkDiv {
+  display: flex;
+  justify-content: center;
+}
+
+.link {
+  color: rgb(156, 156, 156);
+}
