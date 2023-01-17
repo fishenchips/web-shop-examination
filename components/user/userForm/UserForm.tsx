@@ -1,4 +1,4 @@
-import { ToastId } from "@chakra-ui/react";
+import { useToast, ToastId } from "@chakra-ui/react";
 import { useRef, SyntheticEvent } from "react";
 import Link from "next/link";
 
@@ -24,14 +24,22 @@ export const UserForm: React.FC<Props> = ({ values }) => {
   const userNameRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
 
+  const toast = useToast();
+
   const handleSubmitUser = async (e: SyntheticEvent) => {
     e.preventDefault();
 
     const enteredUserName = userNameRef.current?.value;
     const enteredPassword = passwordRef.current?.value;
 
-    if (enteredUserName?.trim() == "" || enteredPassword?.trim() == "")
-      return alert(values.notEntered);
+    if (enteredUserName?.trim() == "" || enteredPassword?.trim() == "") {
+      return toast({
+        title: `${values.notEntered}`,
+        status: "warning",
+        duration: 9000,
+        isClosable: true,
+      });
+    }
 
     /* Only want role to be sent back when register */
     if (values.type === "Register") {
@@ -51,20 +59,6 @@ export const UserForm: React.FC<Props> = ({ values }) => {
       };
 
       values.loginUser(loginData);
-
-      /*  const credentials: LoginUser = { enteredUserName, enteredPassword };
-
-      const response = await fetch("/api/auth/login", {
-        method: "POST",
-        body: JSON.stringify(credentials),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      const user = await response.json();
-
-      console.log(user); */
     }
   };
 
