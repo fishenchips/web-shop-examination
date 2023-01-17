@@ -12,7 +12,7 @@ const RegisterPage = () => {
     /* internal API request, takes api folder and file name, as the POST request is sent to that url */
     try {
       const response = await fetch("/api/new-user", {
-        method: "GET",
+        method: "POST",
         body: JSON.stringify(enteredUserData),
         headers: {
           "Content-Type": "application/json",
@@ -22,13 +22,22 @@ const RegisterPage = () => {
       const data = await response.json();
 
       console.log(data);
+      if (data.message === "Username already taken.") {
+        return toast({
+          title: "Username already taken",
+          description: "Please try another Username",
+          status: "error",
+          duration: 9000,
+          isClosable: true,
+        });
+      }
 
       router.push("/user/login");
 
       toast({
         title: "Account successfully created.",
         description:
-          "You were redirected to login page. Please enter your username and password.",
+          "You were redirected to login page. Please enter your Username and Password.",
         status: "success",
         duration: 9000,
         isClosable: true,

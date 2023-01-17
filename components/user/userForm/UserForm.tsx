@@ -7,6 +7,9 @@ type Props = {
   values: {
     header: string;
     btnText: string;
+    type: string;
+    notEntered: string;
+    taken?: string;
   };
   onAddUser: (userData: User) => Promise<void>;
 };
@@ -15,19 +18,35 @@ export const UserForm: React.FC<Props> = ({ values, onAddUser }) => {
   const userNameRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
 
+  console.log(values);
+
   const handleSubmitUser = (e: SyntheticEvent) => {
     e.preventDefault();
 
     const enteredUserName = userNameRef?.current?.value;
     const enteredPassword = passwordRef?.current?.value;
 
-    const userData = {
-      userName: enteredUserName,
-      password: enteredPassword,
-      role: "user",
-    };
+    if (enteredUserName?.trim() == "" || enteredPassword?.trim() == "")
+      return alert(values.notEntered);
 
-    onAddUser(userData);
+    /* Only want role to be sent back when register */
+    if (values.type === "Register") {
+      const userData = {
+        userName: enteredUserName,
+        password: enteredPassword,
+        role: "user",
+      };
+
+      onAddUser(userData);
+    }
+
+    if (values.type === "Login") {
+      const userData = {
+        userName: enteredUserName,
+        password: enteredPassword,
+      };
+      onAddUser(userData);
+    }
   };
 
   return (

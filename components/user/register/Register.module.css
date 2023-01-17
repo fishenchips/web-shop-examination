@@ -1,0 +1,40 @@
+.userForm h2 {
+  all: revert;
+  text-align: center;
+}
+
+.userForm div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid orange;
+  margin: 2rem;
+}
+
+.userForm label {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.userForm input {
+  all: revert;
+  width: 100%;
+  max-width: 500px;
+  height: 2rem;
+  font-size: 1.2rem;
+}
+
+.userForm button {
+  all: revert;
+  width: 100%;
+  max-width: 250px;
+  height: 3rem;
+  background-color: olive;
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.userForm button:hover {
+  background-color: olivedrab;
+}

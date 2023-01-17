@@ -20,6 +20,18 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
 
     const usersCollection = db.collection("users");
 
+    const users = await usersCollection.find().toArray();
+
+    const taken = users.some((user) => user.userName === data.userName);
+
+    console.log("taken", taken);
+
+    if (taken) {
+      client.close();
+
+      res.status(409).json({ message: "Username already taken." });
+    }
+
     const result = await usersCollection.insertOne(data);
 
     console.log(result);
