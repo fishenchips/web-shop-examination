@@ -2,7 +2,7 @@ import { ToastId } from "@chakra-ui/react";
 import { useRef, SyntheticEvent } from "react";
 import Link from "next/link";
 
-import { User } from "../../../types/user";
+import { User, LoginUser } from "../../../types/user";
 import styles from "./UserForm.module.css";
 
 type Props = {
@@ -11,24 +11,24 @@ type Props = {
     btnText: string;
     type: string;
     notEntered: string;
-    taken?: string;
     linkURL: string;
     linkText: string;
+    addUser: ((userData: User) => Promise<void | ToastId>) | (() => void);
+    loginUser:
+      | ((userData: LoginUser) => Promise<void | ToastId>)
+      | (() => void);
   };
-  onAddUser: (userData: User) => Promise<void | ToastId>;
 };
 
-export const UserForm: React.FC<Props> = ({ values, onAddUser }) => {
+export const UserForm: React.FC<Props> = ({ values }) => {
   const userNameRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
 
-  console.log(values);
-
-  const handleSubmitUser = (e: SyntheticEvent) => {
+  const handleSubmitUser = async (e: SyntheticEvent) => {
     e.preventDefault();
 
-    const enteredUserName = userNameRef?.current?.value;
-    const enteredPassword = passwordRef?.current?.value;
+    const enteredUserName = userNameRef.current?.value;
+    const enteredPassword = passwordRef.current?.value;
 
     if (enteredUserName?.trim() == "" || enteredPassword?.trim() == "")
       return alert(values.notEntered);
@@ -41,15 +41,30 @@ export const UserForm: React.FC<Props> = ({ values, onAddUser }) => {
         role: "user",
       };
 
-      onAddUser(userData);
+      values.addUser(userData);
     }
 
     if (values.type === "Login") {
-      const userData = {
-        userName: enteredUserName,
-        password: enteredPassword,
+      const loginData = {
+        enteredUserName,
+        enteredPassword,
       };
-      onAddUser(userData);
+
+      values.loginUser(loginData);
+
+      /*  const credentials: LoginUser = { enteredUserName, enteredPassword };
+
+      const response = await fetch("/api/auth/login", {
+        method: "POST",
+        body: JSON.stringify(credentials),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const user = await response.json();
+
+      console.log(user); */
     }
   };
 

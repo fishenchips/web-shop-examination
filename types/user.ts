@@ -4,3 +4,8 @@ export interface User {
   password?: string;
   role?: string;
 }
+
+export interface LoginUser {
+  enteredUserName?: string;
+  enteredPassword?: string;
+}
