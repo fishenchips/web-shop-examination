@@ -4,11 +4,8 @@ import { serialize } from "cookie";
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
   const { cookies } = req;
 
-  console.log(cookies, "name");
-
+  /* need to find either AdminJWT / UserJWT */
   const key = Object.keys(cookies);
-
-  console.log(Object.keys(cookies), "keys");
 
   if (key.includes("AdminJWT")) {
     const jwt = cookies.AdminJWT;
