@@ -43,8 +43,6 @@ export const LoggedInUser: React.FC<Props> = ({ id }) => {
     getUserData();
   }, []);
 
-  console.log(user, "how many");
-
   return (
     <>
       <p>

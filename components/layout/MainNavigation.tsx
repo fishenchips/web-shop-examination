@@ -1,20 +1,45 @@
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faHeart, faUser, faUnlock } from "@fortawesome/free-solid-svg-icons";
 import { useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/router";
+import { useState } from "react";
 
 import styles from "./MainNavigation.module.css";
 import { HeaderCartButton } from "./HeaderCartButton";
 
 export const MainNavigation = () => {
+  const [admin, setAdmin] = useState<boolean>(false);
+  const [user, setUser] = useState<boolean>(false);
+
   const queryClient = useQueryClient();
   const router = useRouter();
 
+  const checkAdmin = async () => {
+    const response = await fetch("/api/users/get-admin");
+
+    const { message } = await response.json();
+
+    if (message === "Access granted.") {
+      setAdmin(true);
+    }
+    if (message === "Unathorized access") {
+      setAdmin(false);
+    }
+  };
+
+  checkAdmin();
+
+  /* logout clears all stores data */
   const handleLogOut = async () => {
     const response = await fetch("/api/auth/logout");
 
     localStorage.removeItem("userId");
+
+    //need to fix cart first
+    /* 
+    localStorage.removeItem("cartTotal");
+    localStorage.removeItem("cartItems"); */
 
     queryClient.removeQueries(["user"]);
 
@@ -53,6 +78,13 @@ export const MainNavigation = () => {
               <FontAwesomeIcon icon={faHeart} />
             </Link>
           </li>
+          {admin && (
+            <li>
+              <Link href="/admin">
+                <FontAwesomeIcon icon={faUnlock} />
+              </Link>
+            </li>
+          )}
           <li className={styles.logout} onClick={handleLogOut}>
             Logout
           </li>
