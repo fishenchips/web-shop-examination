@@ -42,8 +42,6 @@ const LoginPage = () => {
       });
     }
 
-    console.log(data, "data from index login page");
-
     return data;
   };
 

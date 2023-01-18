@@ -24,14 +24,15 @@ const CheckoutPage = () => {
 
       const { data } = await response.json();
 
-      console.log(data);
+      console.log(data, "data from checkout/index");
 
-      await router.push(
+      router.push(
         {
           pathname: `/checkout/${data._id}`,
           query: {
             billing: JSON.stringify(data.billing),
             payment: JSON.stringify(data.payment),
+            userId: JSON.stringify(data.userId),
           },
         },
         `/checkout/${data._id}`
@@ -41,7 +42,7 @@ const CheckoutPage = () => {
 
       toast({
         title: "Order successfully placed.",
-        description: "That was expensive, wasn't it?",
+        description: "Thank you for shopping!",
         status: "success",
         duration: 9000,
         isClosable: true,

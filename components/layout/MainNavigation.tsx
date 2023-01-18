@@ -18,7 +18,7 @@ export const MainNavigation = () => {
 
     queryClient.removeQueries(["user"]);
 
-    router.push("/");
+    router.replace("/");
 
     return response.json();
   };

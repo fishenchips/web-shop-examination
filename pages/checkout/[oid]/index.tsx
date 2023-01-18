@@ -9,11 +9,20 @@ const CheckoutSuccess = () => {
 
   const payment = JSON.parse(router.query.payment as string);
 
+  const userId = JSON.parse(router.query.userId as string);
+
+  /*  const {
+    query: { billing, payment, userId },
+  } = router; */
+
+  console.log(payment, billing, userId, "from Order page");
+
   return (
     <OrderConfirmation
       id={router.query.oid}
       billing={billing}
       payment={payment}
+      userId={userId}
     />
   );
 };

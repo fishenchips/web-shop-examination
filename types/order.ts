@@ -4,6 +4,7 @@ export interface Order {
   billing?: BillingDetails;
   payment?: PaymentDetails;
   id?: ObjectId;
+  userId?: string;
 }
 
 export interface BillingDetails {
@@ -18,7 +19,6 @@ export interface BillingDetails {
 export interface PaymentDetails {
   sum?: number;
   items?: Array<OrderProduct>;
-  /* Add user here later */
 }
 
 interface OrderProduct {

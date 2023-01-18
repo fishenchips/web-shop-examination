@@ -1,4 +1,4 @@
-import { useContext, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { useToast } from "@chakra-ui/react";
 
 import { CartContext } from "../../store/CartContext";
@@ -25,6 +25,17 @@ export const Checkout: React.FC<Props> = ({ onAddOrder }) => {
   const zipRef = useRef<HTMLInputElement>(null);
   const cityRef = useRef<HTMLInputElement>(null);
   const countryRef = useRef<HTMLSelectElement>(null);
+  const [user, setUser] = useState<string>("");
+
+  console.log(user, "anything here?");
+
+  useEffect(() => {
+    const userId = JSON.parse(localStorage.getItem("userId") as string);
+
+    if (!userId) return;
+
+    setUser(userId);
+  }, []);
 
   const handleBillingDetails = () => {
     const enteredFirstName = firstNameRef?.current?.value;
@@ -34,7 +45,6 @@ export const Checkout: React.FC<Props> = ({ onAddOrder }) => {
     const enteredCity = cityRef?.current?.value;
     const enteredCountry = countryRef?.current?.value;
 
-    /* commenting out for now */
     if (
       enteredFirstName?.trim() == "" ||
       enteredLastName?.trim() == "" ||
@@ -64,12 +74,12 @@ export const Checkout: React.FC<Props> = ({ onAddOrder }) => {
     const paymentDetails = {
       sum: cartCtx.totalAmount,
       items: cartCtx.items,
-      /* Add user here later */
     };
 
     const checkoutSummary = {
       billing: billingDetails,
       payment: paymentDetails,
+      userId: user,
     };
 
     onAddOrder(checkoutSummary);

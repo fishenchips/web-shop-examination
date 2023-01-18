@@ -7,12 +7,14 @@ interface Props {
   id?: string | Array<string>;
   billing: BillingDetails;
   payment: PaymentDetails;
+  userId: string;
 }
 
 export const OrderConfirmation: React.FC<Props> = ({
   id,
   billing: { firstName, lastName, street, zip, city, country },
   payment: { sum, items },
+  userId,
 }) => {
   const orderTotal = `${sum} kr`;
 
@@ -38,6 +40,7 @@ export const OrderConfirmation: React.FC<Props> = ({
             {country}
           </address>
         </div>
+        <p>USERID: {userId}</p>
       </div>
       <div className={styles.frontPage}>
         <Link href="/">Continue Shopping</Link>
