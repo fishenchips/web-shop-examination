@@ -8,11 +8,11 @@ import styled from "./Products.module.css";
 import { useToast } from "@chakra-ui/react";
 
 interface Props {
-  key: number;
-  id: number;
-  title: string;
-  price: number;
-  images: Array<string>;
+  key?: number;
+  id?: number;
+  title?: string;
+  price?: number;
+  images?: Array<string>;
 }
 
 export const ProductItem: React.FC<Props> = ({ id, title, price, images }) => {
@@ -30,7 +30,7 @@ export const ProductItem: React.FC<Props> = ({ id, title, price, images }) => {
       title: title,
       amount: 1,
       price: price,
-      image: images[0],
+      image: images![0],
     });
     toast({
       title: `${title} added to cart.`,
@@ -44,7 +44,7 @@ export const ProductItem: React.FC<Props> = ({ id, title, price, images }) => {
     <div className={styled.productBox}>
       <div className={styled.productDiv} onClick={productPageHandler}>
         <div className={styled.productImg}>
-          <img src={images[0]} alt={title} />
+          <img src={images![0]} alt={title} />
         </div>
         <h5>{title}</h5>
         <p>{price} kr</p>
