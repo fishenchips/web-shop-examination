@@ -9,11 +9,10 @@ const CheckoutSuccess = () => {
 
   const payment = JSON.parse(router.query.payment as string);
 
-  const userId = JSON.parse(router.query.userId as string);
-
-  /*  const {
-    query: { billing, payment, userId },
-  } = router; */
+  /* Pass null if there isnt a user */
+  const userId = router.query.userId
+    ? JSON.parse(router.query.userId as string)
+    : null;
 
   console.log(payment, billing, userId, "from Order page");
 

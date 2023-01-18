@@ -79,7 +79,8 @@ export const Checkout: React.FC<Props> = ({ onAddOrder }) => {
     const checkoutSummary = {
       billing: billingDetails,
       payment: paymentDetails,
-      userId: user,
+      /* Only add userId property if user exists */
+      ...(user.length > 0 && { userId: user }),
     };
 
     onAddOrder(checkoutSummary);

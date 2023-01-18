@@ -32,7 +32,8 @@ const CheckoutPage = () => {
           query: {
             billing: JSON.stringify(data.billing),
             payment: JSON.stringify(data.payment),
-            userId: JSON.stringify(data.userId),
+            /* Pass null if there isnt a user */
+            userId: data.userId ? JSON.stringify(data.userId) : null,
           },
         },
         `/checkout/${data._id}`
