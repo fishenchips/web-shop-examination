@@ -31,7 +31,7 @@ export const getStaticPaths = async () => {
     /* paths needs to be an array */
     paths: products.map((product: PlatziProduct) => ({
       params: {
-        pid: product.id.toString(),
+        pid: product.id!.toString(),
       },
     })),
   };

@@ -1,7 +1,5 @@
 import { ToastId } from "@chakra-ui/react";
-import { useQuery } from "@tanstack/react-query";
 
-import { isUserLoggedIn } from "../../../queries/users/user-queries";
 import { LoginUser } from "../../../types/user";
 import { UserForm } from "../userForm/UserForm";
 
@@ -10,11 +8,12 @@ interface Props {
 }
 
 export const Login: React.FC<Props> = ({ onLogin }) => {
-  const { data } = useQuery(["user"], () => isUserLoggedIn());
+  if (typeof window !== "undefined") {
+    const userKey = localStorage.getItem("userId");
 
-  /* User cannot log in again */
-  if (data?.message === "Access granted") {
-    return <p>You are already logged in!</p>;
+    if (userKey) {
+      return <p>You are already logged in!</p>;
+    }
   }
 
   const formValues = {

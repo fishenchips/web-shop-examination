@@ -26,7 +26,7 @@ const CheckoutPage = () => {
 
       console.log(data);
 
-      router.push(
+      await router.push(
         {
           pathname: `/checkout/${data._id}`,
           query: {

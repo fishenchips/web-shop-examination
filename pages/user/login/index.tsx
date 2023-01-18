@@ -1,6 +1,5 @@
 import { useToast } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import { useQuery } from "@tanstack/react-query";
 
 import { Login } from "../../../components/user/login/Login";
 import { LoginUser } from "../../../types/user";
@@ -44,10 +43,9 @@ const LoginPage = () => {
     }
 
     console.log(data, "data from index login page");
+
     return data;
   };
-
-  const { data } = useQuery(["user"], () => isUserLoggedIn());
 
   return <Login onLogin={handleLoginUser} />;
 };

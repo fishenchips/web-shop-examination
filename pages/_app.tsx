@@ -14,8 +14,8 @@ import { getUsers } from "../queries/users/user-queries";
 const { ToastContainer } = createStandaloneToast();
 
 const App = ({ Component, pageProps }: AppProps) => {
-  queryClient.prefetchQuery(["users"], () => getUsers());
-
+  /*   queryClient.prefetchQuery(["users"], () => getUsers());
+   */
   return (
     <ChakraProvider>
       <QueryClientProvider client={queryClient}>
