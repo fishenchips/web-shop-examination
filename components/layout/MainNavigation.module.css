@@ -23,12 +23,15 @@
   width: 30rem;
 }
 
-.header a {
+.header a,
+.logout {
   text-decoration: none;
   font-size: 1.5rem;
   color: rgb(29, 52, 29);
+  cursor: pointer;
 }
 
-.header a:hover {
+.header a:hover,
+.logout:hover {
   color: rgb(223, 150, 14);
 }

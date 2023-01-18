@@ -1,22 +1,27 @@
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faUser } from "@fortawesome/free-solid-svg-icons";
+import { useQueryClient } from "@tanstack/react-query";
 
-import styled from "./MainNavigation.module.css";
+import styles from "./MainNavigation.module.css";
 import { HeaderCartButton } from "./HeaderCartButton";
 
 export const MainNavigation = () => {
+  const queryClient = useQueryClient();
+
   const handleLogOut = async () => {
     const response = await fetch("/api/auth/logout");
 
     localStorage.removeItem("userId");
 
+    queryClient.removeQueries(["user"]);
+
     return response.json();
   };
 
   return (
-    <header className={styled.header}>
-      <div className={styled.logo}>
+    <header className={styles.header}>
+      <div className={styles.logo}>
         <h2>
           <Link href="/">Title of Site</Link>
         </h2>
@@ -44,7 +49,9 @@ export const MainNavigation = () => {
               <FontAwesomeIcon icon={faHeart} />
             </Link>
           </li>
-          <li onClick={handleLogOut}>Logout</li>
+          <li className={styles.logout} onClick={handleLogOut}>
+            Logout
+          </li>
         </ul>
       </nav>
     </header>
