@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faUser, faUnlock } from "@fortawesome/free-solid-svg-icons";
 import { useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import styles from "./MainNavigation.module.css";
 import { HeaderCartButton } from "./HeaderCartButton";
@@ -15,20 +15,37 @@ export const MainNavigation = () => {
   const queryClient = useQueryClient();
   const router = useRouter();
 
+  /* Is user admin? */
   const checkAdmin = async () => {
     const response = await fetch("/api/users/get-admin");
 
     const { message } = await response.json();
 
-    if (message === "Access granted.") {
+    if (message === "Access granted") {
       setAdmin(true);
+      setUser(true);
     }
     if (message === "Unathorized access") {
       setAdmin(false);
     }
   };
 
+  /* same check for user */
+  const checkUser = async () => {
+    const response = await fetch("/api/users/get-user");
+
+    const { message } = await response.json();
+
+    if (message === "Access granted") {
+      setUser(true);
+    }
+    if (message === "Unathorized access") {
+      setUser(false);
+    }
+  };
+
   checkAdmin();
+  checkUser();
 
   /* logout clears all stores data */
   const handleLogOut = async () => {
@@ -73,11 +90,13 @@ export const MainNavigation = () => {
               <HeaderCartButton />
             </Link>
           </li>
-          <li>
-            <Link href="/wishlist">
-              <FontAwesomeIcon icon={faHeart} />
-            </Link>
-          </li>
+          {user && (
+            <li>
+              <Link href="/wishlist">
+                <FontAwesomeIcon icon={faHeart} />
+              </Link>
+            </li>
+          )}
           {admin && (
             <li>
               <Link href="/admin">
