@@ -1,3 +1,4 @@
+import { useToast } from "@chakra-ui/react";
 import { useContext } from "react";
 
 import { CartContext } from "../../store/CartContext";
@@ -13,6 +14,7 @@ const Product = ({
   images,
 }: PlatziProduct) => {
   const cartCtx = useContext(CartContext);
+  const toast = useToast();
 
   const addToCartHandler = () => {
     cartCtx.addItem({
@@ -20,7 +22,13 @@ const Product = ({
       title: title,
       amount: 1,
       price: price,
-      image: images[0],
+      image: images![0],
+    });
+    toast({
+      title: `${title} added to cart.`,
+      status: "info",
+      duration: 3000,
+      isClosable: true,
     });
   };
 
@@ -29,7 +37,7 @@ const Product = ({
       <div className={styled.productPage}>
         <div className={styled.productInfo}>
           <div className={styled.productPicture}>
-            <img src={images[0]} alt={title} width="500" />
+            <img src={images![0]} alt={title} width="500" />
           </div>
           <div>
             <h3>{title}</h3>

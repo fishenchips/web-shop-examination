@@ -5,6 +5,7 @@ import { faShoppingCart, faHeart } from "@fortawesome/free-solid-svg-icons";
 
 import { CartContext } from "../../store/CartContext";
 import styled from "./Products.module.css";
+import { useToast } from "@chakra-ui/react";
 
 interface Props {
   key: number;
@@ -17,6 +18,7 @@ interface Props {
 export const ProductItem: React.FC<Props> = ({ id, title, price, images }) => {
   const cartCtx = useContext(CartContext);
   const router = useRouter();
+  const toast = useToast();
 
   const productPageHandler = () => {
     router.push(`/products/${id}`);
@@ -29,6 +31,12 @@ export const ProductItem: React.FC<Props> = ({ id, title, price, images }) => {
       amount: 1,
       price: price,
       image: images[0],
+    });
+    toast({
+      title: `${title} added to cart.`,
+      status: "info",
+      duration: 3000,
+      isClosable: true,
     });
   };
 
