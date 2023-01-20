@@ -4,12 +4,11 @@
   align-items: center;
   width: 33%;
   max-width: 300px;
-  margin: 2px;
+  margin: 10px;
   padding: 10px;
   cursor: pointer;
   text-align: center;
-
-  border: 2px solid orange;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .categoryImg {

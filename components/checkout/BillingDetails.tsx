@@ -23,27 +23,39 @@ export const BillingDetails: React.FC<Props> = ({
   return (
     <form className={styles.billingForm}>
       <div>
-        <label htmlFor="firstName">First Name</label>
+        <label htmlFor="firstName">
+          First Name <span className={styles.required}>*</span>
+        </label>
         <input type="text" name="firstName" ref={firstName} />
       </div>
       <div>
-        <label htmlFor="lastName">Last Name</label>
+        <label htmlFor="lastName">
+          Last Name <span className={styles.required}>*</span>
+        </label>
         <input type="text" name="lasttName" ref={lastName} />
       </div>
       <div>
-        <label htmlFor="street">Street</label>
+        <label htmlFor="street">
+          Street <span className={styles.required}>*</span>
+        </label>
         <input type="text" name="street" ref={street} />
       </div>
       <div>
-        <label htmlFor="zip">ZIP Code</label>
+        <label htmlFor="zip">
+          ZIP Code <span className={styles.required}>*</span>
+        </label>
         <input type="number" name="zip" ref={zip} />
       </div>
       <div>
-        <label htmlFor="city">City</label>
+        <label htmlFor="city">
+          City <span className={styles.required}>*</span>
+        </label>
         <input type="text" name="city" ref={city} />
       </div>
       <div>
-        <label htmlFor="country">Country</label>
+        <label htmlFor="country">
+          Country <span className={styles.required}>*</span>
+        </label>
         <select name="country" id="" defaultValue="default" ref={country}>
           <option value="default" disabled>
             Choose Country
