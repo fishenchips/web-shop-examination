@@ -1,4 +1,11 @@
-import { createContext, ReactNode, useEffect, useReducer } from "react";
+import {
+  createContext,
+  ReactNode,
+  useEffect,
+  useReducer,
+  useState,
+} from "react";
+import { LocalStorageCart } from "../types/cart";
 import { CartProduct } from "../types/product";
 
 export const CartContext = createContext({
@@ -96,9 +103,28 @@ const cartReducer = (state: any, action: any) => {
 };
 
 const CartContextProvider: React.FC<Props> = ({ children }) => {
+  const [localStorageCartState, setLocalStorageCartState] =
+    useState<LocalStorageCart>({
+      items: [],
+      totalAmount: 0,
+    });
+
+  /* Get default cart state from local storage, or fallback, but only on componentDidMount */
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const cartItems = window.localStorage.getItem("cartItems");
+      const sum = window.localStorage.getItem("cartTotal");
+      const defaultState = {
+        items: cartItems ? cartItems : [],
+        totalAmount: sum ? sum : 0,
+      };
+      setLocalStorageCartState(defaultState);
+    }
+  }, []);
+
   const [cartState, dispatchCartAction] = useReducer(
     cartReducer,
-    defaultCartState
+    localStorageCartState
   );
 
   /* using potential local storage to populate cartState.items */

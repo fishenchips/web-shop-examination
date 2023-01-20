@@ -3,14 +3,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faUser, faUnlock } from "@fortawesome/free-solid-svg-icons";
 import { useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
+import { useState, useContext } from "react";
 
 import styles from "./MainNavigation.module.css";
 import { HeaderCartButton } from "./HeaderCartButton";
+import { CartContext } from "../../store/CartContext";
 
 export const MainNavigation = () => {
   const [admin, setAdmin] = useState<boolean>(false);
   const [user, setUser] = useState<boolean>(false);
+  const cartCtx = useContext(CartContext);
 
   const queryClient = useQueryClient();
   const router = useRouter();
@@ -47,16 +49,17 @@ export const MainNavigation = () => {
   checkAdmin();
   checkUser();
 
+  const loggedIn = user || admin;
+
   /* logout clears all stores data */
   const handleLogOut = async () => {
     const response = await fetch("/api/auth/logout");
 
-    localStorage.removeItem("userId");
+    cartCtx.clearCart();
 
-    //need to fix cart first
-    /* 
+    localStorage.removeItem("userId");
     localStorage.removeItem("cartTotal");
-    localStorage.removeItem("cartItems"); */
+    localStorage.removeItem("cartItems");
 
     queryClient.removeQueries(["user"]);
 
@@ -104,9 +107,11 @@ export const MainNavigation = () => {
               </Link>
             </li>
           )}
-          <li className={styles.logout} onClick={handleLogOut}>
-            Logout
-          </li>
+          {loggedIn && (
+            <li className={styles.logout} onClick={handleLogOut}>
+              Logout
+            </li>
+          )}
         </ul>
       </nav>
     </header>
