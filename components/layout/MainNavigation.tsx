@@ -72,7 +72,7 @@ export const MainNavigation = () => {
     <header className={styles.header}>
       <div className={styles.logo}>
         <h2>
-          <Link href="/">Title of Site</Link>
+          <Link href="/">Platzi's Paradise</Link>
         </h2>
       </div>
       <nav>
