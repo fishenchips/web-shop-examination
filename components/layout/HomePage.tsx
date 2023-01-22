@@ -15,11 +15,13 @@ export const HomePage = () => {
         Here at Platzi we sell what the customer wants. Handmade bike? Is it
         time for a new wooden PC? Look to further than Platzi's Paradise!
       </p>
+      <br />
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio
         perferendis nisi quas, corrupti veniam ratione quibusdam aut quisquam?
         Placeat, maiores.
       </p>
+      <br />
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum corrupti
         vitae nisi unde eum quibusdam hic quod tenetur adipisci fuga rem nobis
@@ -28,6 +30,7 @@ export const HomePage = () => {
         sed magni laborum? Veritatis magnam necessitatibus error quas unde
         quidem.
       </p>
+      <br />
       <div className={styles.aboutUs}>
         <p>About us</p>
         <button onClick={handleAboutPage}>Read more</button>
