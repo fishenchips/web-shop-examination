@@ -40,8 +40,7 @@ const Product = ({
       <div className={styles.productPage}>
         <div className={styles.productInfo}>
           <div className={styles.productPicture}>
-            {/*  <img src={images![0]} alt={title} /> */}
-            <ImageCarousel imagesArray={images} description={description} />
+            <ImageCarousel imagesArray={images} altText={title} />
           </div>
           <div className={styles.productTitle}>
             <h3>{title}</h3>

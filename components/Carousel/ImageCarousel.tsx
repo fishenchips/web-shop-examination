@@ -9,13 +9,10 @@ import styles from "./ImageCarousel.module.css";
 
 interface Props {
   imagesArray?: Array<string>;
-  description?: string;
+  altText?: string;
 }
 
-export const ImageCarousel: React.FC<Props> = ({
-  imagesArray,
-  description,
-}) => {
+export const ImageCarousel: React.FC<Props> = ({ imagesArray, altText }) => {
   const [current, setCurrent] = useState<number>(0);
 
   const length = imagesArray!.length;
@@ -43,7 +40,7 @@ export const ImageCarousel: React.FC<Props> = ({
           key={index}
           className={index === current ? styles.slideActive : styles.slide}
         >
-          {index === current && <img src={slide} alt={description} />}
+          {index === current && <img src={slide} alt={altText} />}
         </div>
       ))}
       <FontAwesomeIcon
