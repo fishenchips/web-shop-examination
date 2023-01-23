@@ -1,0 +1,39 @@
+.slider {
+  position: relative;
+}
+
+.slider img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.rightArrow {
+  position: absolute;
+  top: 50%;
+  right: 32px;
+  font-size: 3rem;
+  cursor: pointer;
+  user-select: none;
+  z-index: 10;
+}
+
+.leftArrow {
+  position: absolute;
+  top: 50%;
+  left: 32px;
+  font-size: 3rem;
+  cursor: pointer;
+  user-select: none;
+  z-index: 10;
+}
+
+.slide {
+  opacity: 0;
+  transition-duration: 1s ease;
+}
+
+.slideActive {
+  opacity: 1;
+  transition-duration: 1s;
+}

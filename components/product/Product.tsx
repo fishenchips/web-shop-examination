@@ -3,6 +3,7 @@ import { useContext } from "react";
 
 import { CartContext } from "../../store/CartContext";
 import { PlatziProduct } from "../../types/product";
+import { ImageCarousel } from "../Carousel/ImageCarousel";
 import styles from "./Product.module.css";
 
 const Product = ({
@@ -39,7 +40,8 @@ const Product = ({
       <div className={styles.productPage}>
         <div className={styles.productInfo}>
           <div className={styles.productPicture}>
-            <img src={images![0]} alt={title} />
+            {/*  <img src={images![0]} alt={title} /> */}
+            <ImageCarousel imagesArray={images} description={description} />
           </div>
           <div className={styles.productTitle}>
             <h3>{title}</h3>
