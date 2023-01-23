@@ -1,5 +1,6 @@
 import { useToast } from "@chakra-ui/react";
 import { useContext } from "react";
+import Link from "next/link";
 
 import { CartContext } from "../../store/CartContext";
 import { PlatziProduct } from "../../types/product";
@@ -16,6 +17,14 @@ const Product = ({
 }: PlatziProduct) => {
   const cartCtx = useContext(CartContext);
   const toast = useToast();
+
+  if (!id)
+    return (
+      <p>
+        Product doesnt exist. Press <Link href="/products">here</Link> to see
+        our products!
+      </p>
+    );
 
   const addToCartHandler = () => {
     cartCtx.addItem({
