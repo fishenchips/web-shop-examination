@@ -6,3 +6,33 @@
   padding: 0;
   color: white;
 }
+
+.links {
+  display: flex;
+  justify-content: space-evenly;
+  justify-items: flex-start;
+  padding-top: 4rem;
+}
+
+.trademark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2rem;
+}
+
+.trademark h4 {
+  all: revert;
+}
+
+@media screen and (max-width: 500px) {
+  .footer {
+    display: flex;
+  }
+  .links {
+    flex-direction: column;
+    padding-left: 2rem;
+    padding-top: 2rem;
+    margin-right: 1rem;
+  }
+}

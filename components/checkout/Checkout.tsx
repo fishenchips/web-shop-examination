@@ -27,8 +27,6 @@ export const Checkout: React.FC<Props> = ({ onAddOrder }) => {
   const countryRef = useRef<HTMLSelectElement>(null);
   const [user, setUser] = useState<string>("");
 
-  console.log(user, "anything here?");
-
   useEffect(() => {
     const userId = JSON.parse(localStorage.getItem("userId") as string);
 
