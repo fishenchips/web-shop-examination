@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 import { getUser } from "../../../queries/users/user-queries";
 import { User } from "../../../types/user";
+import { UserOrders } from "./UserOrders";
 
 interface Props {
   id: string;
@@ -34,7 +35,7 @@ export const LoggedInUser: React.FC<Props> = ({ id }) => {
     const getUserData = async () => {
       /* getUser wants a User object */
       const user = {
-        id,
+        id: JSON.parse(localStorage.getItem("userId") as string),
       };
       const data = await getUser(user);
       setUser(data);
@@ -48,6 +49,7 @@ export const LoggedInUser: React.FC<Props> = ({ id }) => {
       <p>
         Welcome Back <i>{user?.userName}!</i>
       </p>
+      <UserOrders id={id} />
     </>
   );
 };

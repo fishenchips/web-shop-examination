@@ -1,0 +1,12 @@
+.header {
+  all: revert;
+}
+
+.orderSummary {
+  border-bottom: 1px solid lightgray;
+  padding: 1rem 0;
+}
+
+.items {
+  margin-top: 1rem;
+}

@@ -4,6 +4,7 @@ export interface Order {
   billing?: BillingDetails;
   payment?: PaymentDetails;
   id?: ObjectId;
+  _id?: string;
   userId?: string;
 }
 
