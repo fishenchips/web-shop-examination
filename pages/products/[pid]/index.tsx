@@ -13,8 +13,6 @@ const ProductPage = () => {
     getProductById(productId as string)
   );
 
-  console.log(product);
-
   return (
     <Product
       id={product?.id}
