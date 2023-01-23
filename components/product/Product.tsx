@@ -3,7 +3,7 @@ import { useContext } from "react";
 
 import { CartContext } from "../../store/CartContext";
 import { PlatziProduct } from "../../types/product";
-import styled from "./Product.module.css";
+import styles from "./Product.module.css";
 
 const Product = ({
   id,
@@ -32,21 +32,23 @@ const Product = ({
     });
   };
 
+  const productPrice = `${price} kr`;
+
   return (
     <>
-      <div className={styled.productPage}>
-        <div className={styled.productInfo}>
-          <div className={styled.productPicture}>
-            <img src={images![0]} alt={title} width="500" />
+      <div className={styles.productPage}>
+        <div className={styles.productInfo}>
+          <div className={styles.productPicture}>
+            <img src={images![0]} alt={title} />
           </div>
-          <div>
+          <div className={styles.productTitle}>
             <h3>{title}</h3>
-            <p>{price}</p>
-            <p>{category?.name}</p>
+            <p>{productPrice}</p>
+            <i>{category?.name}</i>
             <button onClick={addToCartHandler}>Add to cart</button>
           </div>
         </div>
-        <div>
+        <div className={styles.description}>
           <p>{description}</p>
         </div>
       </div>
