@@ -1,0 +1,14 @@
+.category {
+  margin: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid lightgray;
+}
+
+.category img {
+  width: 500px;
+  height: auto;
+}
+
+.category p {
+  font-size: 1.25rem;
+}

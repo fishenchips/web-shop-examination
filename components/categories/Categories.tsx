@@ -11,8 +11,6 @@ export const Categories = () => {
     queryFn: () => getCategories(),
   });
 
-  console.log(categories);
-
   return (
     <div className={styles.categories}>
       {categories?.map((category: Category) => (

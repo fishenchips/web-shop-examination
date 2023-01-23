@@ -1,0 +1,13 @@
+.button {
+  margin-top: 1rem;
+  padding: 1rem 2rem;
+  background-color: red;
+  border: red;
+  border-radius: 5px;
+  font-size: 700;
+}
+
+.button:hover {
+  background-color: black;
+  color: red;
+}

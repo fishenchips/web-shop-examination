@@ -1,12 +1,14 @@
 import { useToast } from "@chakra-ui/react";
 import { useQueryClient } from "@tanstack/react-query";
+
 import { deleteCategory } from "../../../queries/categories/category-queries";
+import styles from "./DeleteCategory.module.css";
 
 interface Props {
   id: number;
 }
 
-const Delete: React.FC<Props> = ({ id }) => {
+export const DeleteCategory: React.FC<Props> = ({ id }) => {
   const queryClient = useQueryClient();
   const toast = useToast();
 
@@ -22,7 +24,9 @@ const Delete: React.FC<Props> = ({ id }) => {
     });
   };
 
-  return <button onClick={handleDeleteCategory}>Delete</button>;
+  return (
+    <button className={styles.button} onClick={handleDeleteCategory}>
+      Delete Category
+    </button>
+  );
 };
-
-export default Delete;
