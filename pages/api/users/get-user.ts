@@ -8,10 +8,10 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const jwt = cookies.AdminJWT || cookies.UserJWT;
 
   if (!jwt) {
-    res.status(200).json({ message: "Unathorized access" });
+    return res.status(200).json({ message: "Unathorized access" });
   }
 
-  res.status(200).json({ message: "Access granted" });
+  return res.status(200).json({ message: "Access granted" });
 };
 
 export default handler;

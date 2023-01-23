@@ -1,11 +1,32 @@
 import { MongoClient } from "mongodb";
+import { useState } from "react";
 
 import { AdminNavigation } from "../../../components/layout/AdminNavigation";
+import { Order } from "../../../types/order";
 
-const AdminOrders = (props: any) => {
-  const { orders } = props;
+interface Props {
+  orders: Array<Order>;
+}
 
-  console.log(orders);
+const AdminOrders: React.FC<Props> = ({ orders }) => {
+  const [admin, setAdmin] = useState<boolean>(false);
+
+  const checkAdmin = async () => {
+    const response = await fetch("/api/users/get-admin");
+
+    const { message } = await response.json();
+
+    if (message === "Access granted") {
+      setAdmin(true);
+    }
+    if (message === "Unathorized access") {
+      setAdmin(false);
+    }
+  };
+
+  checkAdmin();
+
+  if (!admin) return <p>Access denied.</p>;
 
   return (
     <>
@@ -48,7 +69,7 @@ export async function getStaticProps() {
         payment: order.payment,
         id: order._id.toString(),
       })),
+      revalidate: 10,
     },
-    revalidate: 10,
   };
 }
