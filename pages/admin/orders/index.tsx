@@ -31,7 +31,7 @@ const AdminOrders = (props: any) => {
 export default AdminOrders;
 
 export async function getStaticProps() {
-  const client = await MongoClient.connect(process.env.DB_KEY);
+  const client = await MongoClient.connect(process.env.DB_KEY as string);
 
   const db = client.db();
 

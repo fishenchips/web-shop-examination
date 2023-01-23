@@ -19,6 +19,9 @@ export const AdminNavigation = () => {
         <li>
           <Link href="/admin/orders">Orders</Link>
         </li>
+        <li>
+          <Link href="/admin/categories">Categories</Link>
+        </li>
       </ul>
     </nav>
   );

@@ -26,3 +26,9 @@ export const getProductsByCategoryId = async (
 
   return response.json();
 };
+
+export const deleteCategory = async (id: number) => {
+  return fetch(`https://api.escuelajs.co/api/v1/categories/${id}`, {
+    method: "DELETE",
+  });
+};

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart, faHeart } from "@fortawesome/free-solid-svg-icons";
 
 import { CartContext } from "../../store/CartContext";
-import styled from "./Products.module.css";
+import styles from "./Products.module.css";
 import { useToast } from "@chakra-ui/react";
 
 interface Props {
@@ -41,16 +41,20 @@ export const ProductItem: React.FC<Props> = ({ id, title, price, images }) => {
   };
 
   return (
-    <div className={styled.productBox}>
-      <div className={styled.productDiv} onClick={productPageHandler}>
-        <div className={styled.productImg}>
+    <div className={styles.productBox}>
+      <div className={styles.productDiv} onClick={productPageHandler}>
+        <div className={styles.productImg}>
           <img src={images![0]} alt={title} />
         </div>
         <h5>{title}</h5>
         <p>{price} kr</p>
       </div>
       <div>
-        <FontAwesomeIcon icon={faShoppingCart} onClick={addToCartHandler} />
+        <FontAwesomeIcon
+          icon={faShoppingCart}
+          className={styles.icon}
+          onClick={addToCartHandler}
+        />
         <FontAwesomeIcon icon={faHeart} />
       </div>
     </div>
