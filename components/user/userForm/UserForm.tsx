@@ -1,4 +1,4 @@
-import { useToast, ToastId } from "@chakra-ui/react";
+import { useToast, ToastId, Switch } from "@chakra-ui/react";
 import { useRef, SyntheticEvent } from "react";
 import Link from "next/link";
 
@@ -74,6 +74,26 @@ export const UserForm: React.FC<Props> = ({ values }) => {
           <label htmlFor="password">Password</label>
           <input type="password" name="password" ref={passwordRef} />
         </div>
+        {values.type === "Register" && (
+          <div className={styles.joiningAgreement}>
+            <label htmlFor="termsConditions">
+              By joining, you agree to our{" "}
+              <Link href="/terms-conditions" target="_blank">
+                Terms and Conditions
+              </Link>{" "}
+              and our{" "}
+              <Link href="/privacy" target="_blank">
+                Privacy Policy
+              </Link>
+            </label>
+            <Switch
+              id="termsConditions"
+              size="lg"
+              colorScheme="teal"
+              isRequired
+            />
+          </div>
+        )}
         <div>
           <button type="submit">{values.btnText}</button>
         </div>

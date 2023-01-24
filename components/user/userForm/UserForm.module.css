@@ -46,3 +46,11 @@
 .link {
   color: rgb(156, 156, 156);
 }
+
+.joiningAgreement {
+  display: flex;
+}
+
+.joiningAgreement a {
+  text-decoration: underline;
+}
