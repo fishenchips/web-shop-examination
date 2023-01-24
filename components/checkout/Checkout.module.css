@@ -27,3 +27,7 @@
   all: revert;
   cursor: pointer;
 }
+
+.joiningAgreement a {
+  text-decoration: underline;
+}

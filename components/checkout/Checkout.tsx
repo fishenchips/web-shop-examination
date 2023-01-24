@@ -1,5 +1,6 @@
 import { useContext, useEffect, useRef, useState } from "react";
-import { useToast } from "@chakra-ui/react";
+import { useToast, Switch } from "@chakra-ui/react";
+import Link from "next/link";
 
 import { CartContext } from "../../store/CartContext";
 import { BillingDetails } from "./BillingDetails";
@@ -26,6 +27,7 @@ export const Checkout: React.FC<Props> = ({ onAddOrder }) => {
   const cityRef = useRef<HTMLInputElement>(null);
   const countryRef = useRef<HTMLSelectElement>(null);
   const [user, setUser] = useState<string>("");
+  const [isChecked, setIsChecked] = useState<boolean>(false);
 
   useEffect(() => {
     const userId = JSON.parse(localStorage.getItem("userId") as string);
@@ -49,13 +51,14 @@ export const Checkout: React.FC<Props> = ({ onAddOrder }) => {
       enteredStreet?.trim() == "" ||
       enteredZip?.trim() == "" ||
       enteredCity?.trim() == "" ||
-      enteredCountry === "default"
+      enteredCountry === "default" ||
+      isChecked === false
     ) {
       return toast({
         title: "Order completion failed.",
-        description: "Please fill in all billing details fields..",
+        description: "Please fill in all required billing details.",
         status: "error",
-        duration: 9000,
+        duration: 4000,
         isClosable: true,
       });
     }
@@ -118,6 +121,24 @@ export const Checkout: React.FC<Props> = ({ onAddOrder }) => {
         <div>
           <h2>Payment</h2>
           <Payment total={cartCtx.totalAmount} />
+          <div className={styles.joiningAgreement}>
+            <label htmlFor="termsConditions">
+              I've read and accept the{" "}
+              <Link href="/terms-conditions" target="_blank">
+                Terms and Conditions
+              </Link>{" "}
+              and the{" "}
+              <Link href="/privacy" target="_blank">
+                Privacy Policy
+              </Link>
+            </label>
+            <Switch
+              onChange={() => setIsChecked((prev) => !prev)}
+              id="termsConditions"
+              size="lg"
+              colorScheme="teal"
+            />
+          </div>
           <button className={styles.checkoutBtn} onClick={handleBillingDetails}>
             Complete Purchase
           </button>
