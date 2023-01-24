@@ -11,6 +11,7 @@ interface Props {
 export const Login: React.FC<Props> = ({ onLogin }) => {
   const [loggedIn, setLoggedIn] = useState<boolean>(false);
 
+  /* Need to be on client to set localstorage */
   useEffect(() => {
     if (typeof window !== "undefined") {
       const userKey = localStorage.getItem("userId");
@@ -21,6 +22,7 @@ export const Login: React.FC<Props> = ({ onLogin }) => {
     }
   }, []);
 
+  /* Cant log in twice */
   if (loggedIn) {
     return (
       <div>
@@ -29,6 +31,7 @@ export const Login: React.FC<Props> = ({ onLogin }) => {
     );
   }
 
+  /* Pass log in values to UserForm */
   const formValues = {
     header: "Login",
     btnText: "Login",

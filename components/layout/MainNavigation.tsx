@@ -51,7 +51,7 @@ export const MainNavigation = () => {
 
   const loggedIn = user || admin;
 
-  /* logout clears all stores data */
+  /* logout clears all stored data */
   const handleLogOut = async () => {
     const response = await fetch("/api/auth/logout");
 

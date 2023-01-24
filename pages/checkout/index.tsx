@@ -11,7 +11,7 @@ const CheckoutPage = () => {
   const toast = useToast();
 
   const cartCtx = useContext(CartContext);
-  /* Redirect to /complete-purchase/id for a summary!!  */
+  /* Redirect to /complete-purchase/:id for a summary */
   const addOrderHandler = async (enteredOrderData: Order) => {
     try {
       const response = await fetch("/api/new-order", {
@@ -23,8 +23,6 @@ const CheckoutPage = () => {
       });
 
       const { data } = await response.json();
-
-      console.log(data, "data from checkout/index");
 
       router.push(
         {

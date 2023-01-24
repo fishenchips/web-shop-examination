@@ -5,6 +5,7 @@ import Link from "next/link";
 import { User, LoginUser } from "../../../types/user";
 import styles from "./UserForm.module.css";
 
+/* Values sent down from login and register components */
 type Props = {
   values: {
     header: string;
@@ -26,17 +27,19 @@ export const UserForm: React.FC<Props> = ({ values }) => {
 
   const toast = useToast();
 
+  /* Submits form for both register/login, based on type prop */
   const handleSubmitUser = async (e: SyntheticEvent) => {
     e.preventDefault();
 
     const enteredUserName = userNameRef.current?.value;
     const enteredPassword = passwordRef.current?.value;
 
+    /* Check if user has filled in form correctly */
     if (enteredUserName?.trim() == "" || enteredPassword?.trim() == "") {
       return toast({
         title: `${values.notEntered}`,
         status: "warning",
-        duration: 9000,
+        duration: 5000,
         isClosable: true,
       });
     }

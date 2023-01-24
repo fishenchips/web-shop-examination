@@ -3,6 +3,7 @@ import styles from "./Layout.module.css";
 import { MainNavigation } from "./MainNavigation";
 
 export const Layout = (props: any) => {
+  /* Styling the general page used */
   return (
     <div className={styles.outer}>
       <MainNavigation />

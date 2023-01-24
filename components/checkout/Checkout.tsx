@@ -18,8 +18,6 @@ export const Checkout: React.FC<Props> = ({ onAddOrder }) => {
   const cartCtx = useContext(CartContext);
   const toast = useToast();
 
-  console.log(cartCtx);
-
   const firstNameRef = useRef<HTMLInputElement>(null);
   const lastNameRef = useRef<HTMLInputElement>(null);
   const streetRef = useRef<HTMLInputElement>(null);
@@ -29,6 +27,7 @@ export const Checkout: React.FC<Props> = ({ onAddOrder }) => {
   const [user, setUser] = useState<string>("");
   const [isChecked, setIsChecked] = useState<boolean>(false);
 
+  /* If user is logged in, set userId to user state */
   useEffect(() => {
     const userId = JSON.parse(localStorage.getItem("userId") as string);
 
@@ -37,6 +36,7 @@ export const Checkout: React.FC<Props> = ({ onAddOrder }) => {
     setUser(userId);
   }, []);
 
+  /* Form check */
   const handleBillingDetails = () => {
     const enteredFirstName = firstNameRef?.current?.value;
     const enteredLastName = lastNameRef?.current?.value;
@@ -45,6 +45,7 @@ export const Checkout: React.FC<Props> = ({ onAddOrder }) => {
     const enteredCity = cityRef?.current?.value;
     const enteredCountry = countryRef?.current?.value;
 
+    /* If forms isnt filled correctly or user hasn't checked Switch */
     if (
       enteredFirstName?.trim() == "" ||
       enteredLastName?.trim() == "" ||
@@ -64,6 +65,7 @@ export const Checkout: React.FC<Props> = ({ onAddOrder }) => {
       });
     }
 
+    /* Create objects to be stored in DB */
     const billingDetails = {
       firstName: enteredFirstName,
       lastName: enteredLastName,

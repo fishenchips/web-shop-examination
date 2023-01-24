@@ -1,8 +1,10 @@
 This is a school [Medieinstitutet](https://medieinstitutet.se/) examination project, where I will build a web shop.
 
-Products are from [Platzi Fake Store API](https://fakeapi.platzi.com/doc/products)
+Products are from [Platzi Fake Store API](https://fakeapi.platzi.com/en/rest/products)
 
 [Link to TRELLO board](https://trello.com/b/P9fzzmlI/webbshopp)
+
+I will continue to work on this project after school submission. [This is the submission version (UPDATE ON SEND IN)]()
 
 ## Getting Started
 
@@ -23,11 +25,7 @@ Some css classes will include _all: revert_ to go back to intial css styling and
 
 ## Requirements
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+You need access to my MongoDB stored data, and I can provide that should you ask!
 
 ## Learn More
 

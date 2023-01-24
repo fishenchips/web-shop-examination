@@ -1,8 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import {
-  getCategoryById,
-  getProductsByCategoryId,
-} from "../../queries/categories/category-queries";
+
+import { getCategoryById } from "../../queries/categories/category-queries";
 import { CategoryHeader } from "./CategoryHeader";
 import { CategoryProducts } from "./CategoryProducts";
 
@@ -11,12 +9,11 @@ interface Props {
 }
 
 export const SingleCategory: React.FC<Props> = ({ param }) => {
+  /* Get all single category */
   const { data: category } = useQuery({
     queryKey: ["category", param],
     queryFn: () => getCategoryById(param),
   });
-
-  console.log({ category });
 
   return (
     <>

@@ -12,10 +12,12 @@ export const Cart: React.FC = () => {
 
   let totalAmount = `${cartCtx.totalAmount} kr`;
 
+  /* Add an item to cart, with a new property of amount */
   const addToCartHandler = (item: CartProduct) => {
     cartCtx.addItem({ ...item, amount: 1 });
   };
 
+  /* Remove product with specific Id */
   const removeFromCartHandler = (id: number) => {
     cartCtx.removeItem(id);
   };

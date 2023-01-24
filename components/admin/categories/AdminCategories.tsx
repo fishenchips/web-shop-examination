@@ -10,6 +10,7 @@ import styles from "./AdminCategories.module.css";
 const AdminCategories = () => {
   const [admin, setAdmin] = useState<boolean>(false);
 
+  /* Grant access only if user is logged in and admin */
   const checkAdmin = async () => {
     const response = await fetch("/api/users/get-admin");
 
@@ -25,12 +26,14 @@ const AdminCategories = () => {
 
   checkAdmin();
 
+  /* Get all categories  */
   const { data: categories } = useQuery({
     queryKey: ["categories"],
     queryFn: () => getCategories(),
   });
 
   if (!admin) return <p>Access denied.</p>;
+
   return (
     <>
       <AdminNavigation />

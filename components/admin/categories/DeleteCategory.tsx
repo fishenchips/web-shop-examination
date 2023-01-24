@@ -12,6 +12,7 @@ export const DeleteCategory: React.FC<Props> = ({ id }) => {
   const queryClient = useQueryClient();
   const toast = useToast();
 
+  /* Function to delete category */
   const handleDeleteCategory = async () => {
     await deleteCategory(id);
     queryClient.invalidateQueries(["categories"]);

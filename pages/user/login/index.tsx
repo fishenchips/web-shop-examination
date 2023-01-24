@@ -8,6 +8,7 @@ const LoginPage = () => {
   const toast = useToast();
   const router = useRouter();
 
+  /* Post request to log user in */
   const handleLoginUser = async (enteredLoginData: LoginUser) => {
     const response = await fetch("/api/auth/login", {
       method: "POST",

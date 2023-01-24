@@ -11,6 +11,7 @@ type Props = {
 export const Register: React.FC<Props> = ({ onAddUser }) => {
   const [loggedIn, setLoggedIn] = useState<boolean>(false);
 
+  /* Need to be on client to set localstorage */
   useEffect(() => {
     if (typeof window !== "undefined") {
       const userKey = localStorage.getItem("userId");
@@ -21,6 +22,7 @@ export const Register: React.FC<Props> = ({ onAddUser }) => {
     }
   }, []);
 
+  /* Cant register if already logged in */
   if (loggedIn) {
     return (
       <div>
@@ -29,6 +31,7 @@ export const Register: React.FC<Props> = ({ onAddUser }) => {
     );
   }
 
+  /* Pass register values to user form */
   const formValues = {
     header: "Register User",
     btnText: "Create user",

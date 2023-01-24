@@ -13,6 +13,7 @@ const queryErrorHandler = (error: unknown): void => {
   toast({ id, title, status: "error", isClosable: true });
 };
 
+/* Query Client used with useQuery/mutation functions */
 export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {

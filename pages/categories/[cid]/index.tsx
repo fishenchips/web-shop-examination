@@ -15,12 +15,12 @@ const CategoryPage = () => {
 
     await queryClient.prefetchQuery({
       queryKey: ["category", cid],
-      queryFn: () => getCategoryById(cid),
+      queryFn: () => getCategoryById(cid as string),
     });
   };
 
   usePrefetchCategoryById();
 
-  return <SingleCategory param={cid} />;
+  return <SingleCategory param={cid as string} />;
 };
 export default CategoryPage;

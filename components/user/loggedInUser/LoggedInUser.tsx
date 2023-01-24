@@ -16,9 +16,11 @@ export const LoggedInUser: React.FC<Props> = ({ id }) => {
 
   const [user, setUser] = useState<User | null>(null);
 
+  /* Need to be on the client to use Local storage */
   if (typeof window !== "undefined") {
     const userKey = JSON.parse(localStorage.getItem("userId") as string);
 
+    /* Check there isnt a logged in user */
     useEffect(() => {
       if (!userKey) {
         router.push("/user/login");
@@ -31,6 +33,8 @@ export const LoggedInUser: React.FC<Props> = ({ id }) => {
       }
     }, [userKey]);
   }
+
+  /* Set user to user based on id saved in Local storage */
   useEffect(() => {
     const getUserData = async () => {
       /* getUser wants a User object */

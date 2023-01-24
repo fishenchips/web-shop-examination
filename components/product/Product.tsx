@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import { CartContext } from "../../store/CartContext";
 import { PlatziProduct } from "../../types/product";
-import { ImageCarousel } from "../Carousel/ImageCarousel";
+import { ImageCarousel } from "../carousel/ImageCarousel";
 import styles from "./Product.module.css";
 
 const Product = ({
@@ -18,11 +18,15 @@ const Product = ({
   const cartCtx = useContext(CartContext);
   const toast = useToast();
 
+  /* Will generate page no matter if product exists, so creating a check if id (product) exists */
   if (!id)
     return (
       <p>
-        Product doesnt exist. Press <Link href="/products">here</Link> to see
-        our products!
+        Product doesn't exist. Press{" "}
+        <Link href="/products" className={styles.link}>
+          here
+        </Link>{" "}
+        to see our products!
       </p>
     );
 

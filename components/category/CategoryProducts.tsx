@@ -10,7 +10,8 @@ interface Props {
 }
 
 export const CategoryProducts: React.FC<Props> = ({ param }) => {
-  const { data: products } = useQuery({
+  /* Get products by category, with fallback value of empty array */
+  const { data: products = [] } = useQuery({
     queryKey: ["products-by-category", param],
     queryFn: () => getProductsByCategoryId(param),
   });

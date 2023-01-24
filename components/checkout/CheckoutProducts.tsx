@@ -17,6 +17,7 @@ export const CheckoutProducts: React.FC<Props> = ({
   image,
   amount,
 }) => {
+  /* Typescript check */
   if (typeof price !== "number" || typeof amount !== "number") return null;
 
   const productPrice = `${price} kr`;

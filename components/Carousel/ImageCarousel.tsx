@@ -12,6 +12,7 @@ interface Props {
   altText?: string;
 }
 
+/* Creating Image carousel for product page */
 export const ImageCarousel: React.FC<Props> = ({ imagesArray, altText }) => {
   const [current, setCurrent] = useState<number>(0);
 

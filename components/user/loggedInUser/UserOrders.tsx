@@ -9,6 +9,7 @@ interface Props {
 }
 
 export const UserOrders: React.FC<Props> = ({ id }) => {
+  /* Get orders by logged in userId */
   const { data: userOrders } = useQuery(["userOrders", id], () =>
     getOrdersByUserId(id)
   );

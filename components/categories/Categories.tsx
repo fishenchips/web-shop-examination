@@ -6,6 +6,7 @@ import { CategoryItem } from "./CategoryItem";
 import styles from "./Categories.module.css";
 
 export const Categories = () => {
+  /* Get all categories */
   const { data: categories } = useQuery({
     queryKey: ["categories"],
     queryFn: () => getCategories(),

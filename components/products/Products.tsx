@@ -6,6 +6,8 @@ import styles from "./Products.module.css";
 import { ProductItem } from "./ProductItem";
 import { getProducts } from "../../queries/products/product-queries";
 
+/* Anyone using Platzi API can add/remove products, but usually around 200-220 products. 
+Adding maxProduct to be used for pagination */
 const maxProduct = 220;
 
 export const Products = () => {
@@ -13,6 +15,7 @@ export const Products = () => {
 
   const queryClient = useQueryClient();
 
+  /* Get all products with a fallback value of empty array */
   const fallback: Array<PlatziProduct> = [];
   const { data: products = fallback } = useQuery(
     ["products", currentPage],
@@ -34,6 +37,7 @@ export const Products = () => {
     }
   }, [currentPage, queryClient]);
 
+  /* 30 products per page */
   const handlePreviousPage = () => {
     setCurrentPage((currentPage) => currentPage - 30);
   };

@@ -5,6 +5,8 @@ import { OrderConfirmation } from "../../../components/checkout/OrderConfirmatio
 const CheckoutSuccess = () => {
   const router = useRouter();
 
+  /* Passed down from checkout redirect  */
+
   const billing = JSON.parse(router.query.billing as string);
 
   const payment = JSON.parse(router.query.payment as string);

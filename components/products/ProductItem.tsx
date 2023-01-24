@@ -2,10 +2,10 @@ import { useRouter } from "next/router";
 import { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart, faHeart } from "@fortawesome/free-solid-svg-icons";
+import { useToast } from "@chakra-ui/react";
 
 import { CartContext } from "../../store/CartContext";
 import styles from "./Products.module.css";
-import { useToast } from "@chakra-ui/react";
 
 interface Props {
   key?: number;

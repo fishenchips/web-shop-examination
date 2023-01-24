@@ -2,6 +2,7 @@ import { ReactElement } from "react";
 import { Spinner, Text } from "@chakra-ui/react";
 import { useIsFetching } from "@tanstack/react-query";
 
+/* Global loading state */
 export const Loading = (): ReactElement => {
   /* returns a number of how many things are currently fetching */
   const isFetching = useIsFetching();
