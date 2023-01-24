@@ -1,5 +1,6 @@
 import { useToast } from "@chakra-ui/react";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 import { Register } from "../../../components/user/register/Register";
 import { User } from "../../../types/user";
@@ -54,7 +55,15 @@ const RegisterPage = () => {
     }
   };
 
-  return <Register onAddUser={addUserHandler} />;
+  return (
+    <>
+      <Head>
+        <title>Register</title>
+        <meta name="Platzi's Paradise" content="Register user page" />
+      </Head>
+      <Register onAddUser={addUserHandler} />
+    </>
+  );
 };
 
 export default RegisterPage;

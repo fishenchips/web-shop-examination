@@ -1,5 +1,6 @@
 import { useToast } from "@chakra-ui/react";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 import { Login } from "../../../components/user/login/Login";
 import { LoginUser } from "../../../types/user";
@@ -46,7 +47,15 @@ const LoginPage = () => {
     return data;
   };
 
-  return <Login onLogin={handleLoginUser} />;
+  return (
+    <>
+      <Head>
+        <title>Login Page</title>
+        <meta name="Platzi's Paradise" content="Login page" />
+      </Head>
+      <Login onLogin={handleLoginUser} />
+    </>
+  );
 };
 
 export default LoginPage;

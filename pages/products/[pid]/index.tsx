@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 import Product from "../../../components/product/Product";
 import { getProductById } from "../../../queries/products/product-queries";
@@ -14,14 +15,20 @@ const ProductPage = () => {
   );
 
   return (
-    <Product
-      id={product?.id}
-      title={product?.title}
-      price={product?.price}
-      description={product?.description}
-      category={product?.category}
-      images={product?.images}
-    />
+    <>
+      <Head>
+        <title>{product?.title}</title>
+        <meta name="Platzi's Paradise" content={`${product?.title} page`} />
+      </Head>
+      <Product
+        id={product?.id}
+        title={product?.title}
+        price={product?.price}
+        description={product?.description}
+        category={product?.category}
+        images={product?.images}
+      />
+    </>
   );
 };
 

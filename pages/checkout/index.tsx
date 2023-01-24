@@ -1,6 +1,7 @@
 import { useToast } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { useContext } from "react";
+import Head from "next/head";
 
 import { Checkout } from "../../components/checkout/Checkout";
 import { Order } from "../../types/order";
@@ -58,7 +59,15 @@ const CheckoutPage = () => {
     }
   };
 
-  return <Checkout onAddOrder={addOrderHandler} />;
+  return (
+    <>
+      <Head>
+        <title>Checkout</title>
+        <meta name="Platzi's Paradise" content="Checkout page" />
+      </Head>
+      <Checkout onAddOrder={addOrderHandler} />
+    </>
+  );
 };
 
 export default CheckoutPage;

@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 import { OrderConfirmation } from "../../../components/checkout/OrderConfirmation";
 
@@ -17,12 +18,18 @@ const CheckoutSuccess = () => {
     : null;
 
   return (
-    <OrderConfirmation
-      id={router.query.oid}
-      billing={billing}
-      payment={payment}
-      userId={userId}
-    />
+    <>
+      <Head>
+        <title>Order Summary</title>
+        <meta name="Platzi's Paradise" content="Order summary page" />
+      </Head>
+      <OrderConfirmation
+        id={router.query.oid}
+        billing={billing}
+        payment={payment}
+        userId={userId}
+      />
+    </>
   );
 };
 

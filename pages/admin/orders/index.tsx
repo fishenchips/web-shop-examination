@@ -1,5 +1,6 @@
 import { MongoClient } from "mongodb";
 import { useState } from "react";
+import Head from "next/head";
 
 import { AdminNavigation } from "../../../components/layout/AdminNavigation";
 import { Order } from "../../../types/order";
@@ -30,6 +31,9 @@ const AdminOrders: React.FC<Props> = ({ orders }) => {
 
   return (
     <>
+      <Head>
+        <title>Admin Orders</title>
+      </Head>
       <AdminNavigation />
       <div>
         {orders.map((order: any) => (

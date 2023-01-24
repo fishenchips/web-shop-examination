@@ -1,4 +1,6 @@
 import { useState } from "react";
+import Head from "next/head";
+
 import { AdminNavigation } from "../../components/layout/AdminNavigation";
 
 const AdminPage = () => {
@@ -22,6 +24,9 @@ const AdminPage = () => {
   if (!admin) return <p>Access denied.</p>;
   return (
     <>
+      <Head>
+        <title>Admin Hub</title>
+      </Head>
       <AdminNavigation />
     </>
   );
