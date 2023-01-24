@@ -6,7 +6,13 @@ Products are from [Platzi Fake Store API](https://fakeapi.platzi.com/doc/product
 
 ## Getting Started
 
-First, run the development server:
+First, clone the project:
+git clone https://github.com/fishenchips/web-shop-examination.git
+
+Second, install needed packages:
+npm install
+
+Third, run the development server:
 npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -14,6 +20,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Styling
 
 Some css classes will include _all: revert_ to go back to intial css styling and not use chakra UI.
+
+## Requirements
 
 You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
