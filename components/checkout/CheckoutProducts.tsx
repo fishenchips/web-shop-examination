@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import styles from "./CheckoutProducts.module.css";
 
 interface Props {
@@ -26,14 +28,15 @@ export const CheckoutProducts: React.FC<Props> = ({
   return (
     <div className={styles.checkoutProduct}>
       <div className={styles.checkoutImgDiv}>
-        <a href={`/products/${id}`} target="_blank">
+        <Link href={`/products/${id}`} target="_blank">
           <img src={image} alt={title} />
-        </a>
+        </Link>
       </div>
-      <div>
-        <p>{title}</p>
-        <p>{productPrice}</p>
-        <p>{productAmount}</p>
+      <div className={styles.productInfo}>
+        <h5>{title}</h5>
+        <p>
+          {productPrice} {productAmount}
+        </p>
         <p>{totalPrice}</p>
       </div>
     </div>

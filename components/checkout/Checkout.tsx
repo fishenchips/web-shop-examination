@@ -56,7 +56,8 @@ export const Checkout: React.FC<Props> = ({ onAddOrder }) => {
     ) {
       return toast({
         title: "Order completion failed.",
-        description: "Please fill in all required billing details.",
+        description:
+          "Please fill in all required billing details, and accept our Terms & Conditions and Privacy Policy.",
         status: "error",
         duration: 4000,
         isClosable: true,
@@ -130,7 +131,8 @@ export const Checkout: React.FC<Props> = ({ onAddOrder }) => {
               and the{" "}
               <Link href="/privacy" target="_blank">
                 Privacy Policy
-              </Link>
+              </Link>{" "}
+              <span>*</span>
             </label>
             <Switch
               onChange={() => setIsChecked((prev) => !prev)}

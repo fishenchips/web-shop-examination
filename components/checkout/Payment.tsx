@@ -7,5 +7,5 @@ interface Props {
 export const Payment: React.FC<Props> = ({ total }) => {
   const totalPrice = `${total} kr`;
 
-  return <p className={styles.checkoutSum}>Sum: {totalPrice}</p>;
+  return <p className={styles.checkoutSum}>Total: {totalPrice}</p>;
 };

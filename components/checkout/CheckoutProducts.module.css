@@ -1,11 +1,22 @@
 .checkoutProduct {
   display: flex;
+  align-content: flex-end;
   width: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid lightgray;
 }
 
 .checkoutImgDiv img {
   width: 100%;
   max-width: 100px;
   height: auto;
+}
+
+.productInfo {
+  margin-left: 0.5rem;
+}
+
+.productInfo h5 {
+  font-size: 1.1rem;
 }
