@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { MongoClient } from "mongodb";
 
-import { User } from "../../types/user";
+import { User } from "../../../types/user";
 
 type Data = {
   users?: Array<User>;

@@ -1,7 +1,7 @@
 import { User } from "../../types/user";
 
 export const getUsers = async (): Promise<Array<User>> => {
-  const response = await fetch("/api/get-users");
+  const response = await fetch("/api/users/get-users");
 
   return response.json();
 };

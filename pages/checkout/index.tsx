@@ -15,7 +15,7 @@ const CheckoutPage = () => {
   /* Redirect to /complete-purchase/:id for a summary */
   const addOrderHandler = async (enteredOrderData: Order) => {
     try {
-      const response = await fetch("/api/new-order", {
+      const response = await fetch("/api/orders/new-order", {
         method: "POST",
         body: JSON.stringify(enteredOrderData),
         headers: {

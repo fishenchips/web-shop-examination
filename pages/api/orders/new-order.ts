@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { MongoClient } from "mongodb";
 
-import { Order } from "../../types/order";
+import { Order } from "../../../types/order";
 
 type Data = {
   order?: Order;

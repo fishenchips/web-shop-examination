@@ -12,7 +12,7 @@ const RegisterPage = () => {
   const addUserHandler = async (enteredUserData: User) => {
     /* internal API request, takes api folder and file name, as the POST request is sent to that url */
     try {
-      const response = await fetch("/api/new-user", {
+      const response = await fetch("/api/users/new-user", {
         method: "POST",
         body: JSON.stringify(enteredUserData),
         headers: {
