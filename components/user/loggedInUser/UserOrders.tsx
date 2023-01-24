@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 import { getOrdersByUserId } from "../../../queries/orders/order-queries";
 import { Order } from "../../../types/order";
@@ -9,6 +9,11 @@ interface Props {
 }
 
 export const UserOrders: React.FC<Props> = ({ id }) => {
+  const queryClient = useQueryClient();
+
+  /* invalidate orders list to make sure its updated */
+  queryClient.invalidateQueries(["userOrders", id]);
+
   /* Get orders by logged in userId */
   const { data: userOrders } = useQuery(["userOrders", id], () =>
     getOrdersByUserId(id)
