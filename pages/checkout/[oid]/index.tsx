@@ -14,8 +14,6 @@ const CheckoutSuccess = () => {
     ? JSON.parse(router.query.userId as string)
     : null;
 
-  console.log(payment, billing, userId, "from Order page");
-
   return (
     <OrderConfirmation
       id={router.query.oid}
