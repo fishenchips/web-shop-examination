@@ -1,4 +1,5 @@
 import { ToastId } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 
 import { LoginUser } from "../../../types/user";
 import { UserForm } from "../userForm/UserForm";
@@ -8,12 +9,24 @@ interface Props {
 }
 
 export const Login: React.FC<Props> = ({ onLogin }) => {
-  if (typeof window !== "undefined") {
-    const userKey = localStorage.getItem("userId");
+  const [loggedIn, setLoggedIn] = useState<boolean>(false);
 
-    if (userKey) {
-      return <p>You are already logged in!</p>;
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const userKey = localStorage.getItem("userId");
+
+      if (userKey) {
+        setLoggedIn(true);
+      }
     }
+  }, []);
+
+  if (loggedIn) {
+    return (
+      <div>
+        <p>You are already logged in!</p>
+      </div>
+    );
   }
 
   const formValues = {
