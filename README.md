@@ -4,7 +4,7 @@ Products are from [Platzi Fake Store API](https://fakeapi.platzi.com/en/rest/pro
 
 [Link to TRELLO board](https://trello.com/b/P9fzzmlI/webbshopp)
 
-I will continue to work on this project after school submission. [This is the submission version](https://github.com/fishenchips/web-shop-examination/tree/5f779369e35efb1e4672d756d8d210e3396db8e2)
+I will continue to work on this project after school submission. [This is the submission version](https://github.com/fishenchips/web-shop-examination/tree/ad57e0285d0b443f5a1f9aba02babe2f53f7718c)
 
 ## Getting Started
 
